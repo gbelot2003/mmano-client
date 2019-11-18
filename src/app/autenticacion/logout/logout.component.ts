@@ -11,6 +11,7 @@ export class LogoutComponent implements OnInit {
   constructor(private router:Router,) { }
 
   ngOnInit() {
+    // hay que agregar un servicio de logout al servidor
     localStorage.clear();
     this.router.navigate(['login']);
   }
