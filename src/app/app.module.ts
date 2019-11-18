@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatFormFieldModule,
-  MatInputModule, MatButtonModule, MatCardModule, MatCheckboxModule
+  MatInputModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatTableModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -23,6 +23,7 @@ const modulosMaterial = [
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
+  MatTableModule,
 ];
 
 @NgModule({
