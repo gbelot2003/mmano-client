@@ -19,9 +19,9 @@ export class AutenticacionService {
   }
 
   token(){
-    let usuario = localStorage.getItem("user");
+    let token = localStorage.getItem("token");
 
-    let userJson = JSON.parse(usuario);
-    return userJson['token_type'] + " " + userJson['access_token'];
+    let tokenJson = JSON.parse(token);
+    return tokenJson['token_type'] + " " + tokenJson['access_token'];
   }
 }
