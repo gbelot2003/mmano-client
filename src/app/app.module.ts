@@ -14,6 +14,7 @@ import { LoginComponent } from './autenticacion/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './autenticacion/dashboard/dashboard.component';
 import { LogoutComponent } from './autenticacion/logout/logout.component';
+import { UsuariosComponent } from './autenticacion/usuarios/usuarios.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -30,7 +31,8 @@ const modulosMaterial = [
     HomeComponent,
     LoginComponent,
     DashboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
