@@ -35,8 +35,7 @@ export class LoginComponent implements OnInit {
 
     this.AutenticacionService.login(this.loginGroup.controls.email.value, this.loginGroup.controls.password.value)
     .subscribe(datos => {
-      localStorage.setItem("user", "datos");
-      console.log(datos);
+      localStorage.setItem("user", JSON.stringify(datos));
       this.mensaje = "Datos correctos";
       this.router.navigate([this.urlRetorno]);
       return;
@@ -44,5 +43,7 @@ export class LoginComponent implements OnInit {
 
     this.mensaje = "datos malos";
   }
+
+
 
 }

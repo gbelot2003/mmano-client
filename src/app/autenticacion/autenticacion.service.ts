@@ -17,4 +17,11 @@ export class AutenticacionService {
     return this.http.post(environment.endpoint + "/login", {email:email, password:password})
     .pipe(map(datos => {return datos}));
   }
+
+  token(){
+    let usuario = localStorage.getItem("user");
+
+    let userJson = JSON.parse(usuario);
+    return userJson['token_type'] + " " + userJson['access_token'];
+  }
 }
