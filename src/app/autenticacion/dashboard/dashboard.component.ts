@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userInfoService.inicial().subscribe(datos => {
+      localStorage.setItem("user", JSON.stringify(datos));
       this.datos = datos;
       console.log(datos);
     });

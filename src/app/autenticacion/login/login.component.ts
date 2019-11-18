@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
       password:['Luna010203', [Validators.required]],
       remember_me:[''],
     })
-
     this.urlRetorno = this.route.snapshot.queryParams["urlRespuesta"];
   }
 
@@ -33,11 +32,17 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    console.log(this.urlRetorno)
     this.AutenticacionService.login(this.loginGroup.controls.email.value, this.loginGroup.controls.password.value)
     .subscribe(datos => {
       localStorage.setItem("token", JSON.stringify(datos));
       this.mensaje = "Datos correctos";
-      this.router.navigate([this.urlRetorno]);
+      if (this.urlRetorno === undefined){
+        this.router.navigate(['dashboard']);
+      } else {
+        this.router.navigate([this.urlRetorno]);
+      }
+
       return;
     });
 
