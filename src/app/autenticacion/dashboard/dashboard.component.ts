@@ -1,3 +1,4 @@
+import { UserInfoService } from './../../_servicios/user-info.service';
 import { Component, OnInit } from '@angular/core';
 import { PruebasService } from '../../_servicios/pruebas.service';
 
@@ -8,12 +9,13 @@ import { PruebasService } from '../../_servicios/pruebas.service';
 })
 export class DashboardComponent implements OnInit {
   datos:any;
-  constructor(private PruebasService:PruebasService) { }
+  constructor(private userInfoService:UserInfoService) { }
 
   ngOnInit() {
-    this.PruebasService.inicial().subscribe(datos=>{
+    this.userInfoService.inicial().subscribe(datos => {
       this.datos = datos;
-    })
+      console.log(datos);
+    });
   }
 
 }
