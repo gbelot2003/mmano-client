@@ -13,7 +13,6 @@ export class RegisterServiceService {
   handler(
     name,
     email,
-    password,
     role,
     telefono,
     departamento_id,
@@ -24,7 +23,6 @@ export class RegisterServiceService {
       return this.http.post(environment.endpoint + "/register",
       {name,
        email,
-       password,
        role,
        telefono,
        departamento_id,

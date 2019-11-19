@@ -1,7 +1,7 @@
 <h3>Login Form</h3>
 <form [formGroup]="loginGroup" (ngSubmit)="validar()">
 <mat-form-field>
-    <input matInput placeholder="correo electronico" formControlName="email">
+    <input matInput placeholder="correo electronico" formControlName="email" class="example-form example-full-width">
     <mat-error *ngIf="loginGroup.controls.email.hasError('required')">
     El Correo electronico es obligatorio
     </mat-error>
@@ -11,14 +11,14 @@
 </mat-form-field>
 
 <mat-form-field>
-    <input matInput type="password" placeholder="Contraseña" formControlName="password">
+    <input matInput type="password" placeholder="Contraseña" formControlName="password" class="example-form example-full-width">
     <mat-error *ngIf="loginGroup.controls.password.hasError('required')">
     La Contraseñá es obligatoria
     </mat-error>
 </mat-form-field>
 
-<mat-checkbox formControlName="remember_me">Check me</mat-checkbox>
+<mat-checkbox formControlName="remember_me" class="example-full-width">Check me</mat-checkbox>
 
-<button>Validar</button>
+<button class="example-full-width">Validar</button>
 </form>
 <div *ngIf="mensaje">{{ mensaje }}</div>

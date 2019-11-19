@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
     this.registerGroup = this.formbuilder.group({
       name:[],
       email:[],
-      password:[],
       role:[],
       telefono:[],
       departamento_id:[],
@@ -40,7 +39,6 @@ export class RegisterComponent implements OnInit {
     this.register.handler(
       this.registerGroup.controls.name.value,
       this.registerGroup.controls.email.value,
-      this.registerGroup.controls.password.value,
       this.registerGroup.controls.role.value,
       this.registerGroup.controls.telefono.value,
       this.registerGroup.controls.departamento_id.value,

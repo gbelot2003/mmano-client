@@ -1,4 +1,13 @@
 <h3>Registro de Afiliados</h3>
 <form [formGroup]="registerGroup" (ngSubmit)="validar()">
 
+  <mat-form-field>
+    <input matInput formControlName="name" placeholder="Nombre Completo" class="example-full-width">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="email" type="email" placeholder="Correo Electronico" class="example-full-width">
+  </mat-form-field>
+
+
 </form>
