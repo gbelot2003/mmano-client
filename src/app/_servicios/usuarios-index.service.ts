@@ -18,7 +18,7 @@ export class UsuariosIndexService {
   }
 
   getUsuarios(): Observable<Usuarios[]> {
-    return this.http.get<Usuarios[]>(environment.endpoint + "/v1/users", {headers: this.headers});
+    return this.http.get<Usuarios[]>(environment.endpoint + "/users", {headers: this.headers});
   }
 
 }

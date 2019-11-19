@@ -1,5 +1,9 @@
+import { Usuarios } from './../../models/ususarios.model';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs';
 import { UsuariosIndexService } from './../../_servicios/usuarios-index.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-usuarios',
@@ -7,11 +11,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuarios.component.sass']
 })
 export class UsuariosComponent implements OnInit {
-  usuarios:any;
+  dataSource = new UsuariosDataSorce(this.usuariosIndexService);
+  displayedColumns = ['name', 'email', 'telefono']
+
   constructor(private usuariosIndexService:UsuariosIndexService) { }
 
   ngOnInit() {
 
   }
+
+}
+
+export class UsuariosDataSorce extends DataSource<any> {
+  constructor(private usuariosIndexService:UsuariosIndexService){
+    super();
+  }
+
+  connect(): Observable<Usuarios[]>{
+    return this.usuariosIndexService.getUsuarios();
+  }
+
+  disconnect() {}
 
 }
