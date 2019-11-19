@@ -12,17 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
   dataSource = new UsuariosDataSorce(this.usuariosIndexService);
+
   displayedColumns = ['name', 'email', 'telefono']
 
   constructor(private usuariosIndexService:UsuariosIndexService) { }
 
   ngOnInit() {
-
   }
 
 }
 
 export class UsuariosDataSorce extends DataSource<any> {
+  data: any;
   constructor(private usuariosIndexService:UsuariosIndexService){
     super();
   }

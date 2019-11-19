@@ -1,7 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule,
   MatInputModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatTableModule
 } from '@angular/material';
@@ -11,10 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './autenticacion/login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { DashboardComponent } from './autenticacion/dashboard/dashboard.component';
 import { LogoutComponent } from './autenticacion/logout/logout.component';
 import { UsuariosComponent } from './autenticacion/usuarios/usuarios.component';
+import { RegisterComponent } from './autenticacion/register/register.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -33,7 +36,8 @@ const modulosMaterial = [
     LoginComponent,
     DashboardComponent,
     LogoutComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

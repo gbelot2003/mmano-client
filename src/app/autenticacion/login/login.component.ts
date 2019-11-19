@@ -10,7 +10,7 @@ import { Router, Route, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
   urlRetorno: string;
-  private mensaje:string
+  private mensaje:string;
   constructor(
     private formbuilder: FormBuilder,
     private AutenticacionService:AutenticacionService,

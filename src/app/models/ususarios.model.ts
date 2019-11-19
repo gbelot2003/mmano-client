@@ -15,4 +15,6 @@ export interface Usuarios {
   municipio: {
     municipio: string
   };
+
+  roles: Roles;
 }
