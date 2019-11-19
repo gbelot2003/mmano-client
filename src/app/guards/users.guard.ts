@@ -16,7 +16,7 @@ export class UsersGuard implements CanActivate {
       this.role = JSON.parse(localStorage.getItem('user'));
       console.log(this.role.roles[0]);
 
-      if(this.role.roles[0].name === 'Administrador'){
+      if(this.role.roles[0].name === 'Administrador_Sistema'){
         return true;
       }
 
