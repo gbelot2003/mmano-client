@@ -21,7 +21,13 @@ export class RegisterServiceService {
     casa,
     identidad,
     rtn,
-    rtn_image
+    rtn_image,
+    grupo_id,
+    cuenta_image,
+    descripcion_vehiculos,
+    contrato,
+    fvencimiento,
+    fautorizacion,
     ){
       return this.http.post(environment.endpoint + "/register",
       {name,
@@ -34,7 +40,13 @@ export class RegisterServiceService {
        casa,
         identidad,
         rtn,
-        rtn_image
+        rtn_image,
+        grupo_id,
+        cuenta_image,
+        descripcion_vehiculos,
+        contrato,
+        fvencimiento,
+        fautorizacion,
       }).pipe(map(datos => {return datos}));
   }
 }

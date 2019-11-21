@@ -6,6 +6,15 @@ import {RolesService} from "../../_servicios/roles.service";
 import {DepartamentosService} from "../../_servicios/departamentos.service";
 import {MunicipioServiceService} from "../../_servicios/municipio-service.service";
 import { CompradoresComponent } from "./compradores/compradores.component";
+import { TransportistaComponent } from "./transportista/transportista.component";
+import { ProductorIndividualComponent } from "./productor-individual/productor-individual.component";
+import { ProductorGrupalComponent } from "./productor-grupal/productor-grupal.component";
+import { ProductorRepresentanteComponent } from "./productor-representante/productor-representante.component";
+import { PromotorComponent } from "./promotor/promotor.component";
+import { AdministradorSistemaComponent } from "./administrador-sistema/administrador-sistema.component";
+import { AdministradorMantenimientoComponent } from "./administrador-mantenimiento/administrador-mantenimiento.component";
+import { VerificadorComponent } from "./verificador/verificador.component";
+import { GerenteComponent } from "./gerente/gerente.component";
 
 export interface Roles {
   value: string,
@@ -69,24 +78,30 @@ export class RegisterComponent implements OnInit {
 
   validar(){
     if(this.registerGroup.invalid){
-      return;
-    }
-
-    this.register.handler(
-      this.registerGroup.controls.name.value,
-      this.registerGroup.controls.email.value,
-      this.registerGroup.controls.role.value,
-      this.registerGroup.controls.telefono.value,
-      this.registerGroup.controls.departamento_id.value,
-      this.registerGroup.controls.municipio_id.value,
-      this.registerGroup.controls.calle.value,
-      this.registerGroup.controls.casa.value,
-      this.registerGroup.controls.identidad.value,
-      this.registerGroup.controls.rtn.value,
-      this.registerGroup.controls.rtn_image.value,
+      this.register.handler(
+        this.registerGroup.controls.name.value,
+        this.registerGroup.controls.email.value,
+        this.registerGroup.controls.role.value,
+        this.registerGroup.controls.telefono.value,
+        this.registerGroup.controls.departamento_id.value,
+        this.registerGroup.controls.municipio_id.value,
+        this.registerGroup.controls.calle.value,
+        this.registerGroup.controls.casa.value,
+        this.registerGroup.controls.identidad.value,
+        this.registerGroup.controls.rtn.value,
+        this.registerGroup.controls.rtn_image.value,
+        this.registerGroup.controls.grupo_id.value,
+        this.registerGroup.controls.cuenta_image.value,
+        this.registerGroup.controls.descripcion_vehiculos.value,
+        this.registerGroup.controls.contrato.value,
+        this.registerGroup.controls.fvencimiento.value,
+        this.registerGroup.controls.fautorizacion.value,
       ).subscribe(datos => {
         this.mensaje = "datos ingresados"
       });
+      return;
+
+    }
     this.mensaje = "datos incorrectos";
   }
 
