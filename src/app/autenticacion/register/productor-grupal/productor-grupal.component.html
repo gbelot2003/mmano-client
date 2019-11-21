@@ -5,3 +5,16 @@
 <mat-form-field [formGroup]="ParentForm" >
   <input matInput formControlName="rtn" placeholder="RTN*"  class="example-full-width">
 </mat-form-field>
+
+<mat-form-field [formGroup]="ParentForm" >
+  <input matInput formControlName="rtn_image" placeholder="Imagen RTN*"  class="example-full-width">
+</mat-form-field>
+
+<mat-form-field [formGroup]="ParentForm">
+  <mat-label>Grupos/Cooperativas*</mat-label>
+  <mat-select formControlName="grupo_id">
+    <mat-option *ngFor="let grupo of grupos" [value]="grupo.value">
+      {{grupo.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
