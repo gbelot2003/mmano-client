@@ -1,10 +1,11 @@
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {FormGroup, FormBuilder, Validator, Validators} from '@angular/forms';
 import { RegisterServiceService } from '../../_servicios/register-service.service';
 import {RolesService} from "../../_servicios/roles.service";
 import {DepartamentosService} from "../../_servicios/departamentos.service";
 import {MunicipioServiceService} from "../../_servicios/municipio-service.service";
+import { CompradoresComponent } from "./compradores/compradores.component";
 
 export interface Roles {
   value: string,
@@ -39,15 +40,21 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerGroup = this.formbuilder.group({
-      name:[],
-      email:[],
-      role:[],
-      telefono:[],
-      departamento_id:[],
-      municipio_id:[],
-      calle:[],
-      casa:[],
+      name:['Gerardo Antonio Belot Valle', [Validators.required]],
+      email:['gbelot2003@yahoo.com', [Validators.required]],
+      telefono:['2232-4545', [Validators.required]],
+      departamento_id:['1', [Validators.required]],
+      municipio_id:['5', [Validators.required]],
+      calle:['Sendero las accacias', [Validators.required]],
+      casa:['1121', [Validators.required]],
+      role:['Comprador', [Validators.required]],
+      identidad:['', [Validators.required]],
+      rtn:['', [Validators.required]],
+      rtn_image:[''],
     });
+
+    // suscribimos los cambios del formulario a rxjs
+    this.registerGroup.valueChanges.subscribe(newVal => console.log(newVal));
 
     this.rolesService.handler().subscribe(datos => {
       this.roles = datos;
@@ -74,6 +81,9 @@ export class RegisterComponent implements OnInit {
       this.registerGroup.controls.municipio_id.value,
       this.registerGroup.controls.calle.value,
       this.registerGroup.controls.casa.value,
+      this.registerGroup.controls.identidad.value,
+      this.registerGroup.controls.rtn.value,
+      this.registerGroup.controls.rtn_image.value,
       ).subscribe(datos => {
         this.mensaje = "datos ingresados"
       });

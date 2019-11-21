@@ -25,6 +25,7 @@ import { DashboardComponent } from './autenticacion/dashboard/dashboard.componen
 import { LogoutComponent } from './autenticacion/logout/logout.component';
 import { UsuariosComponent } from './autenticacion/usuarios/usuarios.component';
 import { RegisterComponent } from './autenticacion/register/register.component';
+import { CompradoresComponent } from './autenticacion/register/compradores/compradores.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -46,7 +47,8 @@ const modulosMaterial = [
     DashboardComponent,
     LogoutComponent,
     UsuariosComponent,
-    RegisterComponent
+    RegisterComponent,
+    CompradoresComponent
   ],
   imports: [
     BrowserModule,

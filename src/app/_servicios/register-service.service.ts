@@ -18,7 +18,10 @@ export class RegisterServiceService {
     departamento_id,
     municipio_id,
     calle,
-    casa
+    casa,
+    identidad,
+    rtn,
+    rtn_image
     ){
       return this.http.post(environment.endpoint + "/register",
       {name,
@@ -28,7 +31,10 @@ export class RegisterServiceService {
        departamento_id,
        municipio_id,
        calle,
-       casa
+       casa,
+        identidad,
+        rtn,
+        rtn_image
       }).pipe(map(datos => {return datos}));
   }
 }
