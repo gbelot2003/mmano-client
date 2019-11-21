@@ -10,13 +10,11 @@ import {map} from "rxjs/operators";
 export class RolesService {
   headers:HttpHeaders;
 
-  constructor(private http:HttpClient, private autenticacionService:AutenticacionService) {
-    let token = autenticacionService.token();
-    this.headers = new HttpHeaders({"Accept":"application/json", "Authorization": token});
+  constructor(private http:HttpClient) {
   }
 
   handler(){
-    return this.http.get(environment.endpoint + "/roles", {headers:this.headers})
+    return this.http.get(environment.endpoint + "/roles")
       .pipe(map(roles => {return roles}))
   }
 }

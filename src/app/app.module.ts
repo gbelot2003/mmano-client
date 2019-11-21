@@ -4,8 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule,
-  MatInputModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatTableModule
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatTableModule,
+  MatSelectModule,
+  MatOptionModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -27,6 +34,8 @@ const modulosMaterial = [
   MatCardModule,
   MatCheckboxModule,
   MatTableModule,
+  MatSelectModule,
+  MatOptionModule,
 ];
 
 @NgModule({
