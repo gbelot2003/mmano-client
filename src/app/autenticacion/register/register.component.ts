@@ -60,6 +60,12 @@ export class RegisterComponent implements OnInit {
       identidad:['', [Validators.required]],
       rtn:['', [Validators.required]],
       rtn_image:[''],
+      grupo_id:[''],
+      cuenta_image:[''],
+      descripcion_vehiculos:[''],
+      contrato:[''],
+      fvencimiento:[''],
+      fautorizacion:['']
     });
 
     // suscribimos los cambios del formulario a rxjs
