@@ -56,6 +56,15 @@
   <div *ngIf="selectedRole">
     <h4>Información Especifica</h4>
     <app-compradores *ngIf="selectedRole === 'Comprador'" [ParentForm]="registerGroup"></app-compradores>
+    <app-productor-individual *ngIf="selectedRole === 'Productor_Individual'" [ParentForm]="registerGroup"></app-productor-individual>
+    <app-productor-grupal *ngIf="selectedRole === 'Productor_Grupal'" [ParentForm]="registerGroup"></app-productor-grupal>
+    <app-productor-representante *ngIf="selectedRole === 'Productor_Representante Grupo'" [ParentForm]="registerGroup"></app-productor-representante>
+    <app-promotor *ngIf="selectedRole === 'Promotor'" [ParentForm]="registerGroup"></app-promotor>
+    <app-transportista *ngIf="selectedRole === 'Promotor'" [ParentForm]="registerGroup"></app-transportista>
+    <app-administrador-sistema *ngIf="selectedRole === 'Administrador_Sistema'" [ParentForm]="registerGroup"></app-administrador-sistema>
+    <app-administrador-mantenimiento *ngIf="selectedRole === 'Administrador_Mantenimiento'" [ParentForm]="registerGroup"></app-administrador-mantenimiento>
+    <app-verificador *ngIf="selectedRole === 'verificador'" [ParentForm]="registerGroup"></app-verificador>
+    <app-gerente *ngIf="selectedRole === 'Gerente_General'" [ParentForm]="registerGroup"></app-gerente>
   </div>
 
   <button mat-raised-button color="primary" [disabled]="!registerGroup.valid">Registrar</button>

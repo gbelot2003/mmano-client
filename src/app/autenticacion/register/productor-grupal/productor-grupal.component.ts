@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-productor-grupal',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./productor-grupal.component.sass']
 })
 export class ProductorGrupalComponent implements OnInit {
-
+  @Input() ParentForm: FormGroup;
   constructor() { }
 
   ngOnInit() {

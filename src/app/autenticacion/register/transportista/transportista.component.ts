@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-transportista',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./transportista.component.sass']
 })
 export class TransportistaComponent implements OnInit {
-
+  @Input() ParentForm: FormGroup;
   constructor() { }
 
   ngOnInit() {
