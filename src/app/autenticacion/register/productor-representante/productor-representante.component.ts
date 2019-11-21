@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
+import {GruposServiceService} from "../../../_servicios/grupos-service.service";
 
 @Component({
   selector: 'app-productor-representante',
@@ -8,9 +9,14 @@ import {FormGroup} from "@angular/forms";
 })
 export class ProductorRepresentanteComponent implements OnInit {
   @Input() ParentForm: FormGroup;
-  constructor() { }
+  grupos: any;
+
+  constructor(private grupoService:GruposServiceService) { }
 
   ngOnInit() {
+    this.grupoService.handler().subscribe(data => {
+      this.grupos = data;
+    })
   }
 
 }
