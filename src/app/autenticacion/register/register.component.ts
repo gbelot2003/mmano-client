@@ -65,7 +65,8 @@ export class RegisterComponent implements OnInit {
       descripcion_vehiculos:[''],
       contrato:[''],
       fvencimiento:[''],
-      fautorizacion:['']
+      fautorizacion:[''],
+      acuerdo:[''],
     });
 
     // suscribimos los cambios del formulario a rxjs
@@ -102,6 +103,7 @@ export class RegisterComponent implements OnInit {
         this.registerGroup.controls.contrato.value,
         this.registerGroup.controls.fvencimiento.value,
         this.registerGroup.controls.fautorizacion.value,
+        this.registerGroup.controls.acuerdo.value,
       ).subscribe(datos => {
         this.mensaje = "datos ingresados"
       });
