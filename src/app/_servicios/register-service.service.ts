@@ -28,7 +28,7 @@ export class RegisterServiceService {
     contrato,
     fvencimiento,
     fautorizacion,
-    acuertdo,
+    acuerdo,
     ){
       return this.http.post(environment.endpoint + "/register",
       {name,

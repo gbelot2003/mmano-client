@@ -13,6 +13,8 @@ import {
   MatTableModule,
   MatSelectModule,
   MatOptionModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -46,6 +48,8 @@ const modulosMaterial = [
   MatTableModule,
   MatSelectModule,
   MatOptionModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 @NgModule({

@@ -3,6 +3,8 @@
 </mat-form-field>
 
 <mat-form-field [formGroup]="ParentForm" >
-  <input matInput formControlName="fvencimiento" placeholder="Fecha de vencimiento*"  class="example-full-width">
-</mat-form-field>
+  <input matInput formControlName="fvencimiento" [matDatepicker]="picker" placeholder="Fecha Vencimiento de Contrato">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>>
 
