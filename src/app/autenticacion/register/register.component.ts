@@ -50,15 +50,15 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerGroup = this.formbuilder.group({
       name:['Gerardo Antonio Belot Valle', [Validators.required]],
-      email:['gbelot2003@yahoo.com', [Validators.required]],
+      email:['gbelot2003@yahoo.com', [Validators.required, Validators.email]],
       telefono:['2232-4545', [Validators.required]],
       departamento_id:['1', [Validators.required]],
       municipio_id:['5', [Validators.required]],
       calle:['Sendero las accacias', [Validators.required]],
       casa:['1121', [Validators.required]],
       role:['Comprador', [Validators.required]],
-      identidad:['', [Validators.required]],
-      rtn:['', [Validators.required]],
+      identidad:[''],
+      rtn:[''],
       rtn_image:[''],
       grupo_id:[''],
       cuenta_image:[''],
@@ -84,7 +84,7 @@ export class RegisterComponent implements OnInit {
   }
 
   validar(){
-    if(this.registerGroup.invalid){
+    if(!this.registerGroup.invalid){
       this.register.handler(
         this.registerGroup.controls.name.value,
         this.registerGroup.controls.email.value,
