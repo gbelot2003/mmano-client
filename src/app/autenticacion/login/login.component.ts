@@ -32,16 +32,11 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    console.log(this.urlRetorno)
     this.AutenticacionService.login(this.loginGroup.controls.email.value, this.loginGroup.controls.password.value)
     .subscribe(datos => {
       localStorage.setItem("token", JSON.stringify(datos));
       this.mensaje = "Datos correctos";
-      if (this.urlRetorno === undefined){
-        this.router.navigate(['dashboard']);
-      } else {
-        this.router.navigate([this.urlRetorno]);
-      }
+      this.router.navigate(['dashboard']);
 
       return;
     });

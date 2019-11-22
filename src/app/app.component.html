@@ -1,2 +1,46 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
 
-<router-outlet></router-outlet>
+          <span>MMANO</span>
+
+          <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+                   (closed)="events.push('close!')">
+        <h3>Menu de Opciones</h3>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="usuarios" routerLinkActive="active">Mi Perfil</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="usuarios" routerLinkActive="active">Usuarios</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="logout" routerLinkActive="active">Logout</a>
+          </li>
+        </ul>
+
+      </mat-sidenav>
+
+    <mat-card class="example-card">
+      <mat-card-content>
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

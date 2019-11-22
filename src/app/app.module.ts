@@ -15,6 +15,8 @@ import {
   MatOptionModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatToolbarModule,
+  MatIconModule, MatSidenavModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -49,7 +51,10 @@ const modulosMaterial = [
   MatSelectModule,
   MatOptionModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatSidenavModule,
 ];
 
 @NgModule({
