@@ -15,6 +15,9 @@ import { AdministradorSistemaComponent } from "./administrador-sistema/administr
 import { AdministradorMantenimientoComponent } from "./administrador-mantenimiento/administrador-mantenimiento.component";
 import { VerificadorComponent } from "./verificador/verificador.component";
 import { GerenteComponent } from "./gerente/gerente.component";
+import {MatSnackBar} from "@angular/material";
+import {SnackBarComponentComponent} from "../../misc/snack-bar-component/snack-bar-component.component";
+import {MessageServiceService} from "../../_servicios/message-service.service";
 
 export interface Roles {
   value: string,
@@ -28,14 +31,13 @@ export interface Roles {
 })
 export class RegisterComponent implements OnInit {
   registerGroup: FormGroup;
-  private mensaje:string;
+  private mensaje:any;
   private roles: any;
   private departamentos: any;
   private municipios: any;
   private selectedRole: string;
   private selectedDepartamento: number;
   private selectedMunicipio: number;
-  private showMunucipios: boolean;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
     private rolesService: RolesService,
     private departamentoService: DepartamentosService,
     private municipiosService: MunicipioServiceService,
-
+    private _snackbar: MatSnackBar,
     ) { }
 
   ngOnInit() {
@@ -79,8 +81,6 @@ export class RegisterComponent implements OnInit {
     this.departamentoService.handler().subscribe(data => {
       this.departamentos =  data;
     });
-
-    this.showMunucipios = false;
   }
 
   validar(){
@@ -105,18 +105,25 @@ export class RegisterComponent implements OnInit {
         this.registerGroup.controls.fautorizacion.value,
         this.registerGroup.controls.acuerdo.value,
       ).subscribe(datos => {
-        this.mensaje = "datos ingresados"
+        //this.mensaje = datos;
+        this.openSnackBar();
       });
       return;
-
     }
-    this.mensaje = "datos incorrectos";
+    //this.mensaje = "datos incorrectos";
+    this.openSnackBar();
   }
 
   onDepartamentosChange(){
     this.showMunucipios = true;
     this.municipiosService.handler(this.selectedDepartamento).subscribe(datos => {
       this.municipios = datos;
+    })
+  }
+
+  openSnackBar(){
+    this._snackbar.openFromComponent(SnackBarComponentComponent, {
+      duration: 5000
     })
   }
 }

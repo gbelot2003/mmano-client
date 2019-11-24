@@ -10,7 +10,7 @@ import {
   styleUrls: ['./compradores.component.sass']
 })
 export class CompradoresComponent implements OnInit, OnDestroy {
-
+  identidadV: any;
   @Input() ParentForm: FormGroup;
 
   ngOnInit() {

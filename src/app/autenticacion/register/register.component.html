@@ -1,72 +1,89 @@
 <ng-container>
+  <mat-card>
+    <mat-card-title>Registro de Afiliados</mat-card-title>
+    <mat-card-content>
 
-<h3>Registro de Afiliados</h3>
-<form [formGroup]="registerGroup" (ngSubmit)="validar()">
+      <form [formGroup]="registerGroup" (ngSubmit)="validar()">
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="Nombre Completo*" class="example-full-width">
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput formControlName="name" placeholder="Nombre Completo*" class="example-full-width">
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="email" type="email" placeholder="Correo Electronico*"
+                 class="example-full-width">
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput formControlName="email" type="email" placeholder="Correo Electronico*" class="example-full-width">
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="telefono" placeholder="Teféfono de Contacto*" class="example-full-width">
+        </mat-form-field>
+        <div class=""outer>
 
-  <mat-form-field>
-    <input matInput formControlName="telefono" placeholder="Teféfono de Contacto*" class="example-full-width">
-  </mat-form-field>
+          <div class="inner">
+            <mat-form-field>
+              <mat-label>Departamento*</mat-label>
+              <mat-select [(ngModel)]="selectedDepartamento"
+                          (selectionChange)="onDepartamentosChange()"
+                          formControlName="departamento_id">
+                <mat-option *ngFor="let depart of departamentos" [value]="depart.value">
+                  {{depart.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-  <mat-form-field>
-    <mat-label>Departamento*</mat-label>
-    <mat-select [(ngModel)]="selectedDepartamento"
-                (selectionChange)="onDepartamentosChange()"
-                formControlName="departamento_id">
-      <mat-option *ngFor="let depart of departamentos" [value]="depart.value">
-        {{depart.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+          <div class="inner">
+            <mat-form-field>
+              <mat-label>Municipios*</mat-label>
+              <mat-select [(ngModel)]="selectedMunicipio"
+                          formControlName="municipio_id">
+                <mat-option *ngFor="let munic of municipios" [value]="munic.value">
+                  {{munic.viewValue}}
+                </mat-option>
+              </mat-select>
+              <mat-hint>Seleccione un departamento para municipios disponibles</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
 
-  <mat-form-field>
-    <mat-label>Municipios*</mat-label>
-    <mat-select [(ngModel)]="selectedMunicipio"
-                formControlName="municipio_id">
-      <mat-option *ngFor="let munic of municipios" [value]="munic.value">
-        {{munic.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="calle" placeholder="Detalle Dirección*" class="example-full-width">
+          <mat-hint>Numero de calle y referencias</mat-hint>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput formControlName="calle" placeholder="Calle*" class="example-full-width">
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="casa" placeholder="No. de Casa*" class="example-full-width">
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput formControlName="casa" placeholder="No. de Casa*" class="example-full-width">
-  </mat-form-field>
+        <mat-form-field>
+          <mat-label>Tipo de Usuario*</mat-label>
+          <mat-select [(ngModel)]="selectedRole" formControlName="role">
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{role.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="selectedRole">
+          <mat-divider></mat-divider>
+          <h4>Información Especifica</h4>
+          <app-compradores *ngIf="selectedRole === 'Comprador'" [ParentForm]="registerGroup"></app-compradores>
+          <app-productor-individual *ngIf="selectedRole === 'Productor_Individual'"
+                                    [ParentForm]="registerGroup"></app-productor-individual>
+          <app-productor-grupal *ngIf="selectedRole === 'Productor_Grupal'"
+                                [ParentForm]="registerGroup"></app-productor-grupal>
+          <app-productor-representante *ngIf="selectedRole === 'Productor_Representante Grupo'"
+                                       [ParentForm]="registerGroup"></app-productor-representante>
+          <app-promotor *ngIf="selectedRole === 'Promotor'" [ParentForm]="registerGroup"></app-promotor>
+          <app-transportista *ngIf="selectedRole === 'Transportista'" [ParentForm]="registerGroup"></app-transportista>
+          <app-administrador-sistema *ngIf="selectedRole === 'Administrador_Sistema'"
+                                     [ParentForm]="registerGroup"></app-administrador-sistema>
+          <app-administrador-mantenimiento *ngIf="selectedRole === 'Administrador_Mantenimiento'"
+                                           [ParentForm]="registerGroup"></app-administrador-mantenimiento>
+          <app-verificador *ngIf="selectedRole === 'verificador'" [ParentForm]="registerGroup"></app-verificador>
+          <app-gerente *ngIf="selectedRole === 'Gerente_General'" [ParentForm]="registerGroup"></app-gerente>
+        </div>
 
-  <mat-form-field>
-    <mat-label>Tipo de Usuario*</mat-label>
-    <mat-select [(ngModel)]="selectedRole" formControlName="role">
-      <mat-option *ngFor="let role of roles" [value]="role.value">
-        {{role.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <div *ngIf="selectedRole">
-    <h4>Información Especifica</h4>
-    <app-compradores *ngIf="selectedRole === 'Comprador'" [ParentForm]="registerGroup"></app-compradores>
-    <app-productor-individual *ngIf="selectedRole === 'Productor_Individual'" [ParentForm]="registerGroup"></app-productor-individual>
-    <app-productor-grupal *ngIf="selectedRole === 'Productor_Grupal'" [ParentForm]="registerGroup"></app-productor-grupal>
-    <app-productor-representante *ngIf="selectedRole === 'Productor_Representante Grupo'" [ParentForm]="registerGroup"></app-productor-representante>
-    <app-promotor *ngIf="selectedRole === 'Promotor'" [ParentForm]="registerGroup"></app-promotor>
-    <app-transportista *ngIf="selectedRole === 'Transportista'" [ParentForm]="registerGroup"></app-transportista>
-    <app-administrador-sistema *ngIf="selectedRole === 'Administrador_Sistema'" [ParentForm]="registerGroup"></app-administrador-sistema>
-    <app-administrador-mantenimiento *ngIf="selectedRole === 'Administrador_Mantenimiento'" [ParentForm]="registerGroup"></app-administrador-mantenimiento>
-    <app-verificador *ngIf="selectedRole === 'verificador'" [ParentForm]="registerGroup"></app-verificador>
-    <app-gerente *ngIf="selectedRole === 'Gerente_General'" [ParentForm]="registerGroup"></app-gerente>
-  </div>
-
-  <button mat-raised-button color="primary" [disabled]="!registerGroup.valid">Registrar</button>
-</form>
+        <button mat-raised-button color="primary" [disabled]="!registerGroup.valid">Registrar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </ng-container>

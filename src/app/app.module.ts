@@ -16,7 +16,11 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatToolbarModule,
-  MatIconModule, MatSidenavModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatDividerModule,
+  MatGridListModule,
+  MatSnackBarModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -39,6 +43,7 @@ import { AdministradorSistemaComponent } from './autenticacion/register/administ
 import { AdministradorMantenimientoComponent } from './autenticacion/register/administrador-mantenimiento/administrador-mantenimiento.component';
 import { VerificadorComponent } from './autenticacion/register/verificador/verificador.component';
 import { GerenteComponent } from './autenticacion/register/gerente/gerente.component';
+import { SnackBarComponentComponent } from './misc/snack-bar-component/snack-bar-component.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -55,6 +60,9 @@ const modulosMaterial = [
   MatToolbarModule,
   MatIconModule,
   MatSidenavModule,
+  MatDividerModule,
+  MatGridListModule,
+  MatSnackBarModule,
 ];
 
 @NgModule({
@@ -75,7 +83,8 @@ const modulosMaterial = [
     AdministradorSistemaComponent,
     AdministradorMantenimientoComponent,
     VerificadorComponent,
-    GerenteComponent
+    GerenteComponent,
+    SnackBarComponentComponent
   ],
   imports: [
     BrowserModule,
