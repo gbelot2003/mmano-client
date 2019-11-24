@@ -15,9 +15,10 @@ import { AdministradorSistemaComponent } from "./administrador-sistema/administr
 import { AdministradorMantenimientoComponent } from "./administrador-mantenimiento/administrador-mantenimiento.component";
 import { VerificadorComponent } from "./verificador/verificador.component";
 import { GerenteComponent } from "./gerente/gerente.component";
+import {MessageServiceService} from "../../_servicios/message-service.service";
 import {MatSnackBar} from "@angular/material";
 import {SnackBarComponentComponent} from "../../misc/snack-bar-component/snack-bar-component.component";
-import {MessageServiceService} from "../../_servicios/message-service.service";
+
 
 export interface Roles {
   value: string,
@@ -32,12 +33,14 @@ export interface Roles {
 export class RegisterComponent implements OnInit {
   registerGroup: FormGroup;
   private mensaje:any;
+  private errores: any;
   private roles: any;
   private departamentos: any;
   private municipios: any;
   private selectedRole: string;
   private selectedDepartamento: number;
   private selectedMunicipio: number;
+  private registrado:boolean;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -81,6 +84,8 @@ export class RegisterComponent implements OnInit {
     this.departamentoService.handler().subscribe(data => {
       this.departamentos =  data;
     });
+
+    this.registrado = false;
   }
 
   validar(){
@@ -104,18 +109,20 @@ export class RegisterComponent implements OnInit {
         this.registerGroup.controls.fvencimiento.value,
         this.registerGroup.controls.fautorizacion.value,
         this.registerGroup.controls.acuerdo.value,
-      ).subscribe(datos => {
-        //this.mensaje = datos;
-        this.openSnackBar();
-      });
+      ).subscribe(
+        datos => {
+          this.mensaje = datos;
+          this.registrado = true;
+          },
+        error => {
+          this.mensaje = error.error.message;
+          this.errores = error.error.errors;
+        });
       return;
     }
-    //this.mensaje = "datos incorrectos";
-    this.openSnackBar();
   }
 
   onDepartamentosChange(){
-    this.showMunucipios = true;
     this.municipiosService.handler(this.selectedDepartamento).subscribe(datos => {
       this.municipios = datos;
     })

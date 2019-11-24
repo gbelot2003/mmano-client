@@ -1,5 +1,13 @@
 <ng-container>
-  <mat-card>
+  <mat-card *ngIf="registrado">
+    <mat-card-title>Su registro ha sido completado</mat-card-title>
+    <mat-card-content>
+      <p>Gracias por registrase en nuestra plataforma, su registro esta siendo procesado, recibira un correo de confirmación y uno de autorización</p>
+      <p>luego que nuestro personal administrativo revise su documentac</p>
+      <p>Gracias</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="!registrado">
     <mat-card-title>Registro de Afiliados</mat-card-title>
     <mat-card-content>
 
@@ -81,9 +89,11 @@
           <app-verificador *ngIf="selectedRole === 'verificador'" [ParentForm]="registerGroup"></app-verificador>
           <app-gerente *ngIf="selectedRole === 'Gerente_General'" [ParentForm]="registerGroup"></app-gerente>
         </div>
-
         <button mat-raised-button color="primary" [disabled]="!registerGroup.valid">Registrar</button>
       </form>
+      <div *ngIf="mensaje">
+        <p>{{ mensaje }}</p>
+      </div>
     </mat-card-content>
   </mat-card>
 </ng-container>
