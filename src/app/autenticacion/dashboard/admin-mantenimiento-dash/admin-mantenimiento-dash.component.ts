@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-admin-mantenimiento-dash',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-mantenimiento-dash.component.sass']
 })
 export class AdminMantenimientoDashComponent implements OnInit {
-
+  @Input() user:any;
   constructor() { }
 
   ngOnInit() {

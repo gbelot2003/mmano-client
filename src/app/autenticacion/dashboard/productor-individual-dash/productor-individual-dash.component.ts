@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-productor-individual-dash',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./productor-individual-dash.component.sass']
 })
 export class ProductorIndividualDashComponent implements OnInit {
-
+  @Input() user:any;
   constructor() { }
 
   ngOnInit() {
