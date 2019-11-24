@@ -35,13 +35,11 @@ export class LoginComponent implements OnInit {
     this.AutenticacionService.login(this.loginGroup.controls.email.value, this.loginGroup.controls.password.value)
     .subscribe(datos => {
       localStorage.setItem("token", JSON.stringify(datos));
-      this.mensaje = "Datos correctos";
       this.router.navigate(['dashboard']);
-
       return;
+    }, error1 => {
+      this.mensaje = "Datos Incorrectos";
     });
-
-    this.mensaje = "datos malos";
   }
 
 

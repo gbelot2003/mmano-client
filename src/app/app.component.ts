@@ -9,4 +9,8 @@ export class AppComponent {
   title = 'client';
   events: string[] = [];
   opened: boolean;
+
+  public onSidenavClose = () => {
+    this.opened = false;
+  }
 }

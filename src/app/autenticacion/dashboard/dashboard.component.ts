@@ -16,7 +16,6 @@ export class DashboardComponent implements OnInit {
       localStorage.setItem("user", JSON.stringify(datos));
       this.datos = datos;
       this.roles = datos.roles[0].name;
-      console.log(datos.roles[0].name);
     });
   }
 

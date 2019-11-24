@@ -21,6 +21,7 @@ import {
   MatDividerModule,
   MatGridListModule,
   MatSnackBarModule,
+  MatListModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -44,6 +45,16 @@ import { AdministradorMantenimientoComponent } from './autenticacion/register/ad
 import { VerificadorComponent } from './autenticacion/register/verificador/verificador.component';
 import { GerenteComponent } from './autenticacion/register/gerente/gerente.component';
 import { SnackBarComponentComponent } from './misc/snack-bar-component/snack-bar-component.component';
+import { ProductorIndividualDashComponent } from './autenticacion/dashboard/productor-individual-dash/productor-individual-dash.component';
+import { ProductorGrupalDashComponent } from './autenticacion/dashboard/productor-grupal-dash/productor-grupal-dash.component';
+import { ProductorRepesentanteDashComponent } from './autenticacion/dashboard/productor-repesentante-dash/productor-repesentante-dash.component';
+import { CompradorDashComponent } from './autenticacion/dashboard/comprador-dash/comprador-dash.component';
+import { TransportistaDashComponent } from './autenticacion/dashboard/transportista-dash/transportista-dash.component';
+import { PromotorDashComponent } from './autenticacion/dashboard/promotor-dash/promotor-dash.component';
+import { AdminSistemaDashComponent } from './autenticacion/dashboard/admin-sistema-dash/admin-sistema-dash.component';
+import { AdminMantenimientoDashComponent } from './autenticacion/dashboard/admin-mantenimiento-dash/admin-mantenimiento-dash.component';
+import { VerificadorDashComponent } from './autenticacion/dashboard/verificador-dash/verificador-dash.component';
+import { GerenteDashComponent } from './autenticacion/dashboard/gerente-dash/gerente-dash.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -63,6 +74,7 @@ const modulosMaterial = [
   MatDividerModule,
   MatGridListModule,
   MatSnackBarModule,
+  MatListModule,
 ];
 
 @NgModule({
@@ -84,7 +96,17 @@ const modulosMaterial = [
     AdministradorMantenimientoComponent,
     VerificadorComponent,
     GerenteComponent,
-    SnackBarComponentComponent
+    SnackBarComponentComponent,
+    ProductorIndividualDashComponent,
+    ProductorGrupalDashComponent,
+    ProductorRepesentanteDashComponent,
+    CompradorDashComponent,
+    TransportistaDashComponent,
+    PromotorDashComponent,
+    AdminSistemaDashComponent,
+    AdminMantenimientoDashComponent,
+    VerificadorDashComponent,
+    GerenteDashComponent
   ],
   imports: [
     BrowserModule,
