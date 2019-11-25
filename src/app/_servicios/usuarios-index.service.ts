@@ -9,6 +9,7 @@ import { Usuarios } from '../models/ususarios.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsuariosIndexService {
   headers: HttpHeaders;
 
@@ -17,8 +18,10 @@ export class UsuariosIndexService {
     this.headers = new HttpHeaders({ "Accept": "application/json", "Authorization": token })
   }
 
-  getUsuarios(): Observable<Usuarios[]> {
-    return this.http.get<Usuarios[]>(environment.endpoint + "/users", {headers: this.headers});
+  getUsuarios(): Observable {
+    return this.http.get(environment.endpoint + "/users", {headers: this.headers}).pipe(map(data => {
+      return data;
+    }));
   }
 
 }

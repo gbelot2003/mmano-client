@@ -34,16 +34,16 @@
             <mat-icon>assignment</mat-icon> <span class="nav-caption">Dashboard</span>
           </a>
 
-          <a mat-list-item routerLink="/configuraciones-usuarios"
-             *ngIf="user"
-             (click)="onSidenavClose()">
-            <mat-icon>account_circle</mat-icon> <span class="nav-caption">Configuraciones</span>
-          </a>
-
           <a mat-list-item routerLink="/listado-usuarios"
              *ngIf="user && user.roles[0].name === 'Administrador_Sistema'"
              (click)="onSidenavClose()">
             <mat-icon>find_in_page</mat-icon> <span class="nav-caption">Listado de Usuarios</span>
+          </a>
+
+          <a mat-list-item routerLink="/configuraciones-usuarios"
+             *ngIf="user"
+             (click)="onSidenavClose()">
+            <mat-icon>account_circle</mat-icon> <span class="nav-caption">Configuraciones</span>
           </a>
 
           <a mat-list-item routerLink="/register"
