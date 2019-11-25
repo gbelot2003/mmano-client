@@ -54,6 +54,7 @@ import { AdminSistemaDashComponent } from './autenticacion/dashboard/admin-siste
 import { AdminMantenimientoDashComponent } from './autenticacion/dashboard/admin-mantenimiento-dash/admin-mantenimiento-dash.component';
 import { VerificadorDashComponent } from './autenticacion/dashboard/verificador-dash/verificador-dash.component';
 import { GerenteDashComponent } from './autenticacion/dashboard/gerente-dash/gerente-dash.component';
+import { ConfiguracionUsuarioComponent } from './autenticacion/configuracion-usuario/configuracion-usuario.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -105,7 +106,8 @@ const modulosMaterial = [
     AdminSistemaDashComponent,
     AdminMantenimientoDashComponent,
     VerificadorDashComponent,
-    GerenteDashComponent
+    GerenteDashComponent,
+    ConfiguracionUsuarioComponent
   ],
   imports: [
     BrowserModule,

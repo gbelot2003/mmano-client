@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './autenticacion/login/login.component';
 import { AuthGuard } from './autenticacion/auth.guard';
 import { RegisterComponent } from './autenticacion/register/register.component';
-
+import { ConfiguracionUsuarioComponent } from "./autenticacion/configuracion-usuario/configuracion-usuario.component";
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
   {path: 'usuarios', component:UsuariosComponent, canActivate:[AuthGuard, UsersGuard]},
-
+  {path: 'configuraciones-usuarios', component:ConfiguracionUsuarioComponent, canActivate:[AuthGuard]},
   {path: 'logout', component:LogoutComponent, canActivate:[AuthGuard]},
 ];
 
