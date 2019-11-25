@@ -56,6 +56,7 @@ import { VerificadorDashComponent } from './autenticacion/dashboard/verificador-
 import { GerenteDashComponent } from './autenticacion/dashboard/gerente-dash/gerente-dash.component';
 import { ConfiguracionUsuarioComponent } from './autenticacion/configuracion-usuario/configuracion-usuario.component';
 import { StorageModule } from '@ngx-pwa/local-storage';
+import { UsuariosEditComponent } from './autenticacion/usuarios/usuarios-edit/usuarios-edit.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -108,7 +109,8 @@ const modulosMaterial = [
     AdminMantenimientoDashComponent,
     VerificadorDashComponent,
     GerenteDashComponent,
-    ConfiguracionUsuarioComponent
+    ConfiguracionUsuarioComponent,
+    UsuariosEditComponent
   ],
   imports: [
     BrowserModule,

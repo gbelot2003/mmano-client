@@ -10,6 +10,7 @@ import { AuthGuard } from './autenticacion/auth.guard';
 import { RegisterComponent } from './autenticacion/register/register.component';
 import { ConfiguracionUsuarioComponent } from "./autenticacion/configuracion-usuario/configuracion-usuario.component";
 import {GuessGuard} from "./guards/guess.guard";
+import {UsuariosEditComponent} from "./autenticacion/usuarios/usuarios-edit/usuarios-edit.component";
 
 const routes: Routes = [
   {path: '', component:HomeComponent, canActivate:[GuessGuard]},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent, canActivate:[GuessGuard]},
   {path: 'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
   {path: 'listado-usuarios', component:UsuariosComponent, canActivate:[AuthGuard, UsersGuard]},
+  {path: 'listado-usuarios/:id', component:UsuariosEditComponent, canActivate:[AuthGuard, UsersGuard]},
   {path: 'configuraciones-usuarios', component:ConfiguracionUsuarioComponent, canActivate:[AuthGuard]},
   {path: 'logout', component:LogoutComponent, canActivate:[AuthGuard]},
 ];

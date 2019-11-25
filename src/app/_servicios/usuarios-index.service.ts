@@ -24,4 +24,19 @@ export class UsuariosIndexService {
     }));
   }
 
+  getUsuario(id): Observable {
+    return  this.http.get(environment.endpoint + '/users/' + id, {headers: this.headers}).pipe(map(data => {
+      return data;
+    }));
+  }
+
+  editUsuario(name, email, role, telefono, departamento_id, municipio_id, calle, casa, identidad, rtn, rtn_image,
+              grupo_id, cuenta_image, descripcion_vehiculos, contrato, fvencimiento, fautorizacion, acuerdo,){
+    return this.http.patch(environment.endpoint + "/users",
+      {name, email, role, telefono, departamento_id, municipio_id, calle, casa, identidad, rtn, rtn_image,
+        grupo_id, cuenta_image, descripcion_vehiculos, contrato, fvencimiento, fautorizacion, acuerdo,
+      }).pipe(map(datos => {return datos}));
+  }
+
+
 }

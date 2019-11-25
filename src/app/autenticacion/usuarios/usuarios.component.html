@@ -2,6 +2,7 @@
   <h2>Listado de Usuarios</h2>
   <table class="blueTable">
     <thead>
+      <th>No.</th>
       <th>Nombre</th>
       <th>email</th>
       <th>Telefono</th>
@@ -10,7 +11,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let usuario of usuarios">
-        <td>{{ usuario.name }}</td>
+        <td>{{ usuario.id }}</td>
+        <td><a [routerLink]="[usuario.id]">{{ usuario.name }}</a></td>
         <td>{{ usuario.email }}</td>
         <td>{{ usuario.telefono }}</td>
         <td>{{ usuario.roles[0].name }}</td>
