@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {map} from "rxjs/operators";
+import {LogoutService} from "../../_servicios/logout.service";
 
 @Component({
   selector: 'app-logout',
@@ -8,12 +12,14 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private router:Router,) { }
+  constructor(private router:Router, private logut:LogoutService) { }
 
   ngOnInit() {
-    // hay que agregar un servicio de logout al servidor
-    localStorage.clear();
-    this.router.navigate(['login']);
+    this.logut.handler().subscribe(data => {
+      localStorage.clear();
+      window.location.reload();
+      return console.log(data);
+    });
   }
 
 }

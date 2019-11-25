@@ -1,24 +1,34 @@
-<h3>Login Form</h3>
-<form [formGroup]="loginGroup" (ngSubmit)="validar()">
-<mat-form-field>
-    <input matInput placeholder="correo electronico" formControlName="email" class="example-form example-full-width">
-    <mat-error *ngIf="loginGroup.controls.email.hasError('required')">
-    El Correo electronico es obligatorio
-    </mat-error>
-     <mat-error *ngIf="loginGroup.controls.email.hasError('email') && !loginGroup.controls.email.hasError('required')">
-    El Correo electronico no es valido
-    </mat-error>
-</mat-form-field>
+<ng-container>
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginGroup" (ngSubmit)="validar()">
+        <mat-form-field>
+          <input matInput placeholder="correo electronico" formControlName="email" class="example-form example-full-width">
+          <mat-error *ngIf="loginGroup.controls.email.hasError('required')">
+            El Correo electronico es obligatorio
+          </mat-error>
+          <mat-error *ngIf="loginGroup.controls.email.hasError('email') && !loginGroup.controls.email.hasError('required')">
+            El Correo electronico no es valido
+          </mat-error>
+        </mat-form-field>
 
-<mat-form-field>
-    <input matInput type="password" placeholder="Contraseña" formControlName="password" class="example-form example-full-width">
-    <mat-error *ngIf="loginGroup.controls.password.hasError('required')">
-    La Contraseñá es obligatoria
-    </mat-error>
-</mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Contraseña" formControlName="password" class="example-form example-full-width">
+          <mat-error *ngIf="loginGroup.controls.password.hasError('required')">
+            La Contraseñá es obligatoria
+          </mat-error>
+        </mat-form-field>
 
-<mat-checkbox formControlName="remember_me" class="example-full-width">Check me</mat-checkbox>
-  <hr />
-<button mat-button >Validar</button>
-</form>
-<div *ngIf="mensaje">{{ mensaje }}</div>
+        <div>
+          <button mat-raised-button color="primary" style="margin-right: 2rem">Validar</button>
+          <mat-checkbox formControlName="remember_me" >Check me</mat-checkbox>
+        </div>
+
+      </form>
+      <div *ngIf="mensaje">{{ mensaje }}</div>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+
