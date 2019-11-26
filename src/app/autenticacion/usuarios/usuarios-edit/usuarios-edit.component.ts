@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {RolesService} from "../../../_servicios/roles.service";
 import {DepartamentosService} from "../../../_servicios/departamentos.service";
 import {MunicipioServiceService} from "../../../_servicios/municipio-service.service";
+import { AdministradorSistemaFormComponent } from "../administrador-sistema-form/administrador-sistema-form.component";
 
 @Component({
   selector: 'app-usuarios-edit',
@@ -44,7 +45,7 @@ export class UsuariosEditComponent implements OnInit{
       this.editGroup.get('telefono').setValue(this.user.telefono);
       this.editGroup.get('departamento_id').setValue(this.user.departamento_id);
       this.editGroup.get('municipio_id').setValue(this.user.municipio_id);
-      this.municipiosService.handler(data.departamento_id).subscribe(data => {
+      this.municipiosService.handler(this.user.departamento_id).subscribe(data => {
         this.municipios =  data;
       });
       this.editGroup.get('calle').setValue(this.user.calle);

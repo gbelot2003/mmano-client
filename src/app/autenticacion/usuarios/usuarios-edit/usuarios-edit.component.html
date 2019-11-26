@@ -69,13 +69,23 @@
             <div>
               <mat-form-field>
                 <mat-label>Tipo de Usuario*</mat-label>
-                <mat-select [(ngModel)]="selectedRole" formControlName="role">
+                <mat-select [(ngModel)]="selectedRole" formControlName="role" disabled>
                   <mat-option *ngFor="let role of roles" [value]="role.value">
                     {{role.viewValue}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
+
+            <app-administrador-sistema-form *ngIf="selectedRole === 'Administrador_Sistema'"
+                                            [ParentForm]="editGroup" [user]="user"></app-administrador-sistema-form>
+
+            <app-comprador-form *ngIf="selectedRole === 'Comprador'"
+                                [ParentForm]="editGroup" [user]="user"></app-comprador-form>
+
+            <app-productor-independiente-form *ngIf="selectedRole === 'Productor_Individual'"
+                                              [ParentForm]="editGroup" [user]="user"></app-productor-independiente-form>
+
             <div>
               <button mat-raised-button color="primary" [disabled]="!editGroup.valid">Actualizar</button>
             </div>

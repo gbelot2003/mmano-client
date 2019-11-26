@@ -8,6 +8,7 @@ import {FormGroup, Validators} from "@angular/forms";
 })
 export class AdministradorSistemaComponent implements OnInit, OnDestroy{
   @Input() ParentForm: FormGroup;
+
   constructor() { }
 
   ngOnInit() {
