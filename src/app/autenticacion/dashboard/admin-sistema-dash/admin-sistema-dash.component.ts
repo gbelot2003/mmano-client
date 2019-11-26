@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ConfiguracionesService} from "../../../_servicios/configuraciones.service";
 
 @Component({
   selector: 'app-admin-sistema-dash',
@@ -7,9 +8,13 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AdminSistemaDashComponent implements OnInit {
   @Input() user:any;
-  constructor() { }
+  configuraciones:any;
+  constructor(private config: ConfiguracionesService) { }
 
   ngOnInit() {
+    this.config.newUsers().subscribe(data => {
+      this.configuraciones = data;
+    })
   }
 
 }

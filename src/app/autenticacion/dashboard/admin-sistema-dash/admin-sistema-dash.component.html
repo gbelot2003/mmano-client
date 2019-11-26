@@ -1,1 +1,13 @@
-<p>admin-sistema-dash works!</p>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-card *ngIf="configuraciones.length" class="example-card">
+      <mat-card-header>
+        <mat-card-title>Nuevos Usuarios</mat-card-title>
+        <mat-card-subtitle>Hay <span style="color: red;">{{ configuraciones.length }}</span> usuarios pendientes de aprobación</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <a [routerLink]="['/listado-usuarios']"  mat-button>Ir a consola de usuarios</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
