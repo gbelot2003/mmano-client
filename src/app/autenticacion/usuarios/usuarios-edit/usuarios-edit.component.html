@@ -86,6 +86,15 @@
             <app-productor-independiente-form *ngIf="selectedRole === 'Productor_Individual'"
                                               [ParentForm]="editGroup" [user]="user"></app-productor-independiente-form>
 
+            <app-productor-grupal-form *ngIf="selectedRole === 'Productor_Grupal'"
+                                       [ParentForm]="editGroup" [user]="user"></app-productor-grupal-form>
+
+            <app-productor-representante-form *ngIf="selectedRole === 'Productor_Representante Grupo'"
+                                              [ParentForm]="editGroup" [user]="user"></app-productor-representante-form>
+
+            <app-transportista-form *ngIf="selectedRole === 'Transportista'"
+                                    [ParentForm]="editGroup" [user]="user"></app-transportista-form>
+
             <div>
               <button mat-raised-button color="primary" [disabled]="!editGroup.valid">Actualizar</button>
             </div>

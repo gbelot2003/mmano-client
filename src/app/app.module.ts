@@ -59,6 +59,9 @@ import { UsuariosEditComponent } from './autenticacion/usuarios/usuarios-edit/us
 import { AdministradorSistemaFormComponent } from './autenticacion/usuarios/administrador-sistema-form/administrador-sistema-form.component';
 import { CompradorFormComponent } from './autenticacion/usuarios/comprador-form/comprador-form.component';
 import { ProductorIndependienteFormComponent } from './autenticacion/usuarios/productor-independiente-form/productor-independiente-form.component';
+import { ProductorGrupalFormComponent } from './autenticacion/usuarios/productor-grupal-form/productor-grupal-form.component';
+import { ProductorRepresentanteFormComponent } from './autenticacion/usuarios/productor-representante-form/productor-representante-form.component';
+import { TransportistaFormComponent } from './autenticacion/usuarios/transportista-form/transportista-form.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -115,7 +118,11 @@ const modulosMaterial = [
     UsuariosEditComponent,
     AdministradorSistemaFormComponent,
     CompradorFormComponent,
-    ProductorIndependienteFormComponent
+    ProductorIndependienteFormComponent,
+    ProductorGrupalFormComponent,
+    ProductorRepresentanteFormComponent,
+    TransportistaFormComponent,
+
   ],
   imports: [
     BrowserModule,

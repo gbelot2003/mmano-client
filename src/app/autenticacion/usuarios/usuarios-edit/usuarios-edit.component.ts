@@ -51,6 +51,7 @@ export class UsuariosEditComponent implements OnInit{
       this.editGroup.get('calle').setValue(this.user.calle);
       this.editGroup.get('casa').setValue(this.user.casa);
       this.editGroup.get('role').setValue(this.user.roles[0].name);
+      this.editGroup.get('identidad').setValue(this.user.identidad);
       this.editGroup.get('rtn').setValue(this.user.rtn);
       this.editGroup.get('rtn_image').setValue(this.user.rtn_image);
       this.editGroup.get('grupo_id').setValue(this.user.grupo_id);
