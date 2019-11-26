@@ -62,6 +62,10 @@ import { ProductorIndependienteFormComponent } from './autenticacion/usuarios/pr
 import { ProductorGrupalFormComponent } from './autenticacion/usuarios/productor-grupal-form/productor-grupal-form.component';
 import { ProductorRepresentanteFormComponent } from './autenticacion/usuarios/productor-representante-form/productor-representante-form.component';
 import { TransportistaFormComponent } from './autenticacion/usuarios/transportista-form/transportista-form.component';
+import { AdministradorMantenimientoFormComponent } from './autenticacion/usuarios/administrador-mantenimiento-form/administrador-mantenimiento-form.component';
+import { PromotorFormComponent } from './autenticacion/usuarios/promotor-form/promotor-form.component';
+import { VerificadorFormComponent } from './autenticacion/usuarios/verificador-form/verificador-form.component';
+import { GerenteFormComponent } from './autenticacion/usuarios/gerente-form/gerente-form.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -122,6 +126,10 @@ const modulosMaterial = [
     ProductorGrupalFormComponent,
     ProductorRepresentanteFormComponent,
     TransportistaFormComponent,
+    AdministradorMantenimientoFormComponent,
+    PromotorFormComponent,
+    VerificadorFormComponent,
+    GerenteFormComponent,
 
   ],
   imports: [

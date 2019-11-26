@@ -95,6 +95,18 @@
             <app-transportista-form *ngIf="selectedRole === 'Transportista'"
                                     [ParentForm]="editGroup" [user]="user"></app-transportista-form>
 
+            <app-administrador-mantenimiento-form *ngIf="selectedRole === 'Administrador_Mantenimiento'"
+                                                  [ParentForm]="editGroup" [user]="user"></app-administrador-mantenimiento-form>
+
+            <app-verificador-form *ngIf="selectedRole === 'verificador'"
+                                  [ParentForm]="editGroup" [user]="user"></app-verificador-form>
+
+            <app-promotor-form *ngIf="selectedRole === 'Promotor'"
+                               [ParentForm]="editGroup" [user]="user"></app-promotor-form>
+
+            <app-gerente-form *ngIf="selectedRole === 'Gerente_General'"
+                              [ParentForm]="editGroup" [user]="user"></app-gerente-form>
+
             <div>
               <button mat-raised-button color="primary" [disabled]="!editGroup.valid">Actualizar</button>
             </div>
