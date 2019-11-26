@@ -30,6 +30,7 @@ export interface Roles {
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.sass'],
 })
+
 export class RegisterComponent implements OnInit {
   registerGroup: FormGroup;
   private mensaje:any;

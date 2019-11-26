@@ -18,24 +18,24 @@ export class UsuariosIndexService {
     this.headers = new HttpHeaders({ "Accept": "application/json", "Authorization": token })
   }
 
-  getUsuarios(): Observable {
+  getUsuarios(){
     return this.http.get(environment.endpoint + "/users", {headers: this.headers}).pipe(map(data => {
       return data;
     }));
   }
 
-  getUsuario(id): Observable {
+  getUsuario(id) {
     return  this.http.get(environment.endpoint + '/users/' + id, {headers: this.headers}).pipe(map(data => {
       return data;
     }));
   }
 
-  editUsuario(name, email, role, telefono, departamento_id, municipio_id, calle, casa, identidad, rtn, rtn_image,
+  editUsuario(id, name, email, role, telefono, departamento_id, municipio_id, calle, casa, identidad, rtn, rtn_image,
               grupo_id, cuenta_image, descripcion_vehiculos, contrato, fvencimiento, fautorizacion, acuerdo,){
-    return this.http.patch(environment.endpoint + "/users",
+    return this.http.patch(environment.endpoint + "/users/" + id,
       {name, email, role, telefono, departamento_id, municipio_id, calle, casa, identidad, rtn, rtn_image,
-        grupo_id, cuenta_image, descripcion_vehiculos, contrato, fvencimiento, fautorizacion, acuerdo,
-      }).pipe(map(datos => {return datos}));
+        grupo_id, cuenta_image, descripcion_vehiculos, contrato, fvencimiento, fautorizacion, acuerdo},
+      {headers: this.headers}).pipe(map(datos => {return datos}));
   }
 
 
