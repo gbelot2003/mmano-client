@@ -6,6 +6,7 @@ import {RolesService} from "../../../_servicios/roles.service";
 import {DepartamentosService} from "../../../_servicios/departamentos.service";
 import {MunicipioServiceService} from "../../../_servicios/municipio-service.service";
 import { AdministradorSistemaFormComponent } from "../administrador-sistema-form/administrador-sistema-form.component";
+import {ConfiguracionesService} from "../../../_servicios/configuraciones.service";
 
 @Component({
   selector: 'app-usuarios-edit',
@@ -24,7 +25,6 @@ export class UsuariosEditComponent implements OnInit{
   private selectedDepartamento: number;
   private selectedMunicipio: number;
   private registrado:boolean;
-
   ename: string;
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +34,7 @@ export class UsuariosEditComponent implements OnInit{
     private departamentoService: DepartamentosService,
     private municipiosService: MunicipioServiceService,
     private router:Router,
+    private configurations:ConfiguracionesService,
   ) { }
 
   ngOnInit() {
@@ -92,6 +93,10 @@ export class UsuariosEditComponent implements OnInit{
     this.departamentoService.handler().subscribe(data => {
       this.departamentos =  data;
     });
+
+    this.configurations.changeStatus(this.id).subscribe(data => {
+      console.log('done');
+    })
 
   }
 

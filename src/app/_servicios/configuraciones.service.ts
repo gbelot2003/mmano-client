@@ -20,4 +20,10 @@ export class ConfiguracionesService {
       return data;
     }));
   }
+
+  changeStatus(id){
+    return this.http.get(environment.endpoint + "/configuraciones/changeStatus/" + id, {headers: this.headers}).pipe(map(data => {
+      return data;
+    }));
+  }
 }
