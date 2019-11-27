@@ -30,8 +30,7 @@
             <div class="inner">
               <mat-form-field>
                 <mat-label>Departamento*</mat-label>
-                <mat-select [(ngModel)]="selectedDepartamento"
-                            (selectionChange)="onDepartamentosChange()"
+                <mat-select (selectionChange)="onDepartamentosChange()"
                             formControlName="departamento_id">
                   <mat-option *ngFor="let depart of departamentos" [value]="depart.value">
                     {{depart.viewValue}}
@@ -43,8 +42,7 @@
             <div class="inner">
               <mat-form-field>
                 <mat-label>Municipios*</mat-label>
-                <mat-select [(ngModel)]="selectedMunicipio"
-                            formControlName="municipio_id">
+                <mat-select formControlName="municipio_id">
                   <mat-option *ngFor="let munic of municipios" [value]="munic.value">
                     {{munic.viewValue}}
                   </mat-option>
@@ -69,7 +67,7 @@
             <div>
               <mat-form-field>
                 <mat-label>Tipo de Usuario*</mat-label>
-                <mat-select [(ngModel)]="selectedRole" formControlName="role" disabled>
+                <mat-select  formControlName="role">
                   <mat-option *ngFor="let role of roles" [value]="role.value">
                     {{role.viewValue}}
                   </mat-option>
@@ -77,34 +75,34 @@
               </mat-form-field>
             </div>
 
-            <app-administrador-sistema-form *ngIf="selectedRole === 'Administrador_Sistema'"
+            <app-administrador-sistema-form *ngIf="userRol === 'Administrador_Sistema'"
                                             [ParentForm]="editGroup" [user]="user"></app-administrador-sistema-form>
 
-            <app-comprador-form *ngIf="selectedRole === 'Comprador'"
+            <app-comprador-form *ngIf="userRol === 'Comprador'"
                                 [ParentForm]="editGroup" [user]="user"></app-comprador-form>
 
-            <app-productor-independiente-form *ngIf="selectedRole === 'Productor_Individual'"
+            <app-productor-independiente-form *ngIf="userRol === 'Productor_Individual'"
                                               [ParentForm]="editGroup" [user]="user"></app-productor-independiente-form>
 
-            <app-productor-grupal-form *ngIf="selectedRole === 'Productor_Grupal'"
+            <app-productor-grupal-form *ngIf="userRol === 'Productor_Grupal'"
                                        [ParentForm]="editGroup" [user]="user"></app-productor-grupal-form>
 
-            <app-productor-representante-form *ngIf="selectedRole === 'Productor_Representante Grupo'"
+            <app-productor-representante-form *ngIf="userRol === 'Productor_Representante Grupo'"
                                               [ParentForm]="editGroup" [user]="user"></app-productor-representante-form>
 
-            <app-transportista-form *ngIf="selectedRole === 'Transportista'"
+            <app-transportista-form *ngIf="userRol === 'Transportista'"
                                     [ParentForm]="editGroup" [user]="user"></app-transportista-form>
 
-            <app-administrador-mantenimiento-form *ngIf="selectedRole === 'Administrador_Mantenimiento'"
+            <app-administrador-mantenimiento-form *ngIf="userRol === 'Administrador_Mantenimiento'"
                                                   [ParentForm]="editGroup" [user]="user"></app-administrador-mantenimiento-form>
 
-            <app-verificador-form *ngIf="selectedRole === 'verificador'"
+            <app-verificador-form *ngIf="userRol === 'verificador'"
                                   [ParentForm]="editGroup" [user]="user"></app-verificador-form>
 
-            <app-promotor-form *ngIf="selectedRole === 'Promotor'"
+            <app-promotor-form *ngIf="userRol === 'Promotor'"
                                [ParentForm]="editGroup" [user]="user"></app-promotor-form>
 
-            <app-gerente-form *ngIf="selectedRole === 'Gerente_General'"
+            <app-gerente-form *ngIf="userRol === 'Gerente_General'"
                               [ParentForm]="editGroup" [user]="user"></app-gerente-form>
 
             <div>

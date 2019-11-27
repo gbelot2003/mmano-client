@@ -7,6 +7,7 @@ import {DepartamentosService} from "../../../_servicios/departamentos.service";
 import {MunicipioServiceService} from "../../../_servicios/municipio-service.service";
 import { AdministradorSistemaFormComponent } from "../administrador-sistema-form/administrador-sistema-form.component";
 import {ConfiguracionesService} from "../../../_servicios/configuraciones.service";
+import {decimalDigest} from "@angular/compiler/src/i18n/digest";
 
 @Component({
   selector: 'app-usuarios-edit',
@@ -26,6 +27,7 @@ export class UsuariosEditComponent implements OnInit{
   private selectedMunicipio: number;
   private registrado:boolean;
   ename: string;
+  private userRol: any;
   constructor(
     private route: ActivatedRoute,
     private usuariosIndexService:UsuariosIndexService,
@@ -38,17 +40,27 @@ export class UsuariosEditComponent implements OnInit{
   ) { }
 
   ngOnInit() {
+    // solicitamos id del router
     this.id = this.route.snapshot.paramMap.get('id');
+
+    //solicitamos info del usuario del API
     this.usuariosIndexService.getUsuario(this.id).subscribe(data => {
+
+      // guardamos objeto con info del usuario
       this.user = data;
+      this.userRol = data.roles[0].name;
+
+      // Llenamo el Select con las opciones de municipios
+      this.municipiosService.handler(this.user.departamento_id).subscribe(data => {
+        this.municipios =  data;
+      });
+
+      // Llenamos los campos del Formulario
       this.editGroup.get('name').setValue(this.user.name);
       this.editGroup.get('email').setValue(this.user.email);
       this.editGroup.get('telefono').setValue(this.user.telefono);
       this.editGroup.get('departamento_id').setValue(this.user.departamento_id);
       this.editGroup.get('municipio_id').setValue(this.user.municipio_id);
-      this.municipiosService.handler(this.user.departamento_id).subscribe(data => {
-        this.municipios =  data;
-      });
       this.editGroup.get('calle').setValue(this.user.calle);
       this.editGroup.get('casa').setValue(this.user.casa);
       this.editGroup.get('role').setValue(this.user.roles[0].name);
@@ -62,9 +74,9 @@ export class UsuariosEditComponent implements OnInit{
       this.editGroup.get('fvencimiento').setValue(this.user.fvencimiento);
       this.editGroup.get('fautorizacion').setValue(this.user.fautorizacion);
       this.editGroup.get('acuerdo').setValue(this.user.acuerdo);
-
     });
 
+    // Instanciamos el fomulario y relgas locales
     this.editGroup = this.formbuilder.group({
       name:['', [Validators.required]],
       email:['', [Validators.required, Validators.email]],
@@ -73,7 +85,7 @@ export class UsuariosEditComponent implements OnInit{
       municipio_id:['', [Validators.required]],
       calle:['', [Validators.required]],
       casa:['', [Validators.required]],
-      role:['', [Validators.required]],
+      role:[{value: '', disabled: true}, [Validators.required]],
       identidad:[''],
       rtn:[''],
       rtn_image:[''],
@@ -86,10 +98,12 @@ export class UsuariosEditComponent implements OnInit{
       acuerdo:[''],
     });
 
+    // Llenamos las opciones de role?
     this.rolesService.handler().subscribe(datos => {
       this.roles = datos;
     });
 
+    // Llenamos las opciones de departamentos
     this.departamentoService.handler().subscribe(data => {
       this.departamentos =  data;
     });
@@ -100,6 +114,7 @@ export class UsuariosEditComponent implements OnInit{
   }
 
   valid(){
+    // acción de submit de formulario
     this.usuariosIndexService.editUsuario(
       this.id,
       this.editGroup.controls.name.value,

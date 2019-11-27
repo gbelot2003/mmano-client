@@ -15,10 +15,6 @@ export class CompradorFormComponent implements OnInit, OnDestroy {
     this.ParentForm.controls.identidad.validator = Validators.required;
     this.ParentForm.controls.rtn.validator = Validators.required;
     this.ParentForm.controls.rtn_image.validator = Validators.required;
-
-    this.ParentForm.get('identidad').setValue(this.user.identidad);
-    this.ParentForm.get('rtn').setValue(this.user.rtn);
-    this.ParentForm.get('rtn_image').setValue(this.user.rtn_image);
   }
 
   ngOnDestroy(){

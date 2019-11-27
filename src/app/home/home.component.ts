@@ -8,12 +8,10 @@ import { PruebasService } from '../_servicios/pruebas.service';
 })
 export class HomeComponent implements OnInit {
   datos:any;
-  constructor(private PruebasService:PruebasService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.PruebasService.inicial().subscribe(datos=>{
-      this.datos = datos;
-    })
+
   }
 
 }

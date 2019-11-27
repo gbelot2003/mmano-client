@@ -15,10 +15,7 @@ export class AdministradorSistemaFormComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.ParentForm.controls.contrato.validator = Validators.required;
     this.ParentForm.controls.fvencimiento.validator = Validators.required;
-    this.ParentForm.get('contrato').setValue(this.user.contrato);
-
     this.picker = new Date((new Date(this.user.fvencimiento).getTime()));
-    this.ParentForm.get('fvencimiento').setValue(this.picker);
   }
 
   ngOnDestroy(){
