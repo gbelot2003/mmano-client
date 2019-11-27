@@ -97,7 +97,6 @@ export class UsuariosEditComponent implements OnInit{
     this.configurations.changeStatus(this.id).subscribe(data => {
       console.log('done');
     })
-
   }
 
   valid(){
