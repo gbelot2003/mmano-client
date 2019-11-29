@@ -148,4 +148,36 @@ export class UsuariosEditComponent implements OnInit{
       this.user = data;
     })
   }
+
+  cancelarAcceso($event){
+    if (confirm("¿Esta seguro que desea cancelar accesos a usuario?")){
+      this.usuariosIndexService.cancelAccess(this.id).subscribe( data => {
+        this.user = data;
+      })
+    } else {
+      return
+    }
+
+
+  }
+
+  reenviarEmail(){
+    if (confirm("¿Esta seguro que desea reenviar accesos a usuario?")){
+      this.usuariosIndexService.attemptPassword(this.id).subscribe( data => {
+        this.user = data;
+      })
+    } else {
+      return
+    }
+  }
+
+  resetPassword(){
+    if (confirm("¿Esta seguro que desea resetear el password del usuario?")){
+      this.usuariosIndexService.resetPassword(this.id).subscribe( data => {
+        this.user = data;
+      })
+    } else {
+      return
+    }
+  }
 }

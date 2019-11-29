@@ -12,14 +12,14 @@
           <span *ngIf="user.passwordAttempt === true">
             <p>Se envío correo de acceso, en espera de las acciones del usuario.</p>
             <p>Estamos esperando las acciones del usuario</p>
-            <button mat-raised-button color="accent" class="example-button-row">Reenviar correo</button>
+            <button mat-raised-button color="accent" class="example-button-row" (click)="reenviarEmail()">Reenviar correo</button>
           </span>
 
           <button mat-raised-button color="warn" *ngIf="user.status === true"
-                  class="example-button-row">Cancelar acceso</button>
+                  class="example-button-row" (click)="cancelarAcceso()">Cancelar acceso</button>
 
-          <button mat-raised-button color="accent" *ngIf="user.status === true"
-                  class="example-button-row">Restear Password</button>
+          <button mat-raised-button color="accent" *ngIf="user.status === true && user.passwordAttempt === false"
+                  class="example-button-row" (click)="resetPassword()">Restear Password</button>
 
           <hr />
         </div>

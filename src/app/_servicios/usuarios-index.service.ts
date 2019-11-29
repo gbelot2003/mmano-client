@@ -84,5 +84,15 @@ export class UsuariosIndexService {
       .pipe(map(datos => {return datos}))
   }
 
+  cancelAccess(id){
+    return this.http.get(environment.endpoint + "/configuraciones/cancel-access/" + id, {headers: this.headers})
+      .pipe(map(datos => {return datos}));
+  }
+
+  resetPassword(id){
+    return this.http.get(environment.endpoint + "/configuraciones/password-reset/" + id, {headers: this.headers})
+      .pipe(map(datos => {return datos}));
+  }
+
 
 }
