@@ -5,9 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {RolesService} from "../../../_servicios/roles.service";
 import {DepartamentosService} from "../../../_servicios/departamentos.service";
 import {MunicipioServiceService} from "../../../_servicios/municipio-service.service";
-import { AdministradorSistemaFormComponent } from "../administrador-sistema-form/administrador-sistema-form.component";
 import {ConfiguracionesService} from "../../../_servicios/configuraciones.service";
-import {decimalDigest} from "@angular/compiler/src/i18n/digest";
 
 @Component({
   selector: 'app-usuarios-edit',
@@ -28,6 +26,8 @@ export class UsuariosEditComponent implements OnInit{
   private registrado:boolean;
   ename: string;
   private userRol: any;
+  private passportAttempt: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private usuariosIndexService:UsuariosIndexService,
@@ -48,7 +48,6 @@ export class UsuariosEditComponent implements OnInit{
 
       // guardamos objeto con info del usuario
       this.user = data;
-      this.userRol = data.roles[0].name;
 
       // Llenamo el Select con las opciones de municipios
       this.municipiosService.handler(this.user.departamento_id).subscribe(data => {
@@ -108,9 +107,9 @@ export class UsuariosEditComponent implements OnInit{
       this.departamentos =  data;
     });
 
-    this.configurations.changeStatus(this.id).subscribe(data => {
+    /*this.configurations.changeStatus(this.id).subscribe(data => {
       console.log('done');
-    })
+    })*/
   }
 
   valid(){
@@ -144,5 +143,9 @@ export class UsuariosEditComponent implements OnInit{
     })
   }
 
-
+  enviarAccesos($event) {
+    this.usuariosIndexService.attemptPassword(this.id).subscribe( data => {
+      this.user = data;
+    })
+  }
 }

@@ -19,8 +19,10 @@ import {
   MatDividerModule,
   MatGridListModule,
   MatSnackBarModule,
-  MatListModule,
+  MatListModule, MatDialogModule,
 } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -86,6 +88,7 @@ const modulosMaterial = [
   MatGridListModule,
   MatSnackBarModule,
   MatListModule,
+  MatDialogModule,
 ];
 
 @NgModule({

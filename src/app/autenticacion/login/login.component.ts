@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       email:['gerardobelot@outlook.com', [Validators.required, Validators.email]],
       password:['Luna010203', [Validators.required]],
       remember_me:[''],
-    })
+    });
     this.urlRetorno = this.route.snapshot.queryParams["urlRespuesta"];
   }
 
@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
       return;
     }, error1 => {
       this.mensaje = "Datos Incorrectos";
+      localStorage.removeItem("token")
+      localStorage.removeItem("user")
     });
   }
 

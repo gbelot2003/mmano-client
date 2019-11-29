@@ -3,6 +3,27 @@
     <mat-card>
       <mat-card-title>Ficha de usuario de <i>{{ user.name }}</i></mat-card-title>
       <mat-card-content>
+
+        <h3>Acciones a Usuario</h3>
+        <div class="example-button-row">
+          <button mat-raised-button color="primary" *ngIf="user.status === false && user.passwordAttempt === false"
+                  class="example-button-row" (click)="enviarAccesos()">Dar acceso</button>
+
+          <span *ngIf="user.passwordAttempt === true">
+            <p>Se envío correo de acceso, en espera de las acciones del usuario.</p>
+            <p>Estamos esperando las acciones del usuario</p>
+            <button mat-raised-button color="accent" class="example-button-row">Reenviar correo</button>
+          </span>
+
+          <button mat-raised-button color="warn" *ngIf="user.status === true"
+                  class="example-button-row">Cancelar acceso</button>
+
+          <button mat-raised-button color="accent" *ngIf="user.status === true"
+                  class="example-button-row">Restear Password</button>
+
+          <hr />
+        </div>
+
         <h3>Datos Generales</h3>
         <div>
           <form [formGroup]="editGroup" (ngSubmit)="valid()">
@@ -75,37 +96,38 @@
               </mat-form-field>
             </div>
 
-            <app-administrador-sistema-form *ngIf="userRol === 'Administrador_Sistema'"
+            <app-administrador-sistema-form *ngIf="user.roles[0].name === 'Administrador_Sistema'"
                                             [ParentForm]="editGroup" [user]="user"></app-administrador-sistema-form>
 
-            <app-comprador-form *ngIf="userRol === 'Comprador'"
+            <app-comprador-form *ngIf="user.roles[0].name === 'Comprador'"
                                 [ParentForm]="editGroup" [user]="user"></app-comprador-form>
 
-            <app-productor-independiente-form *ngIf="userRol === 'Productor_Individual'"
+            <app-productor-independiente-form *ngIf="user.roles[0].name === 'Productor_Individual'"
                                               [ParentForm]="editGroup" [user]="user"></app-productor-independiente-form>
 
-            <app-productor-grupal-form *ngIf="userRol === 'Productor_Grupal'"
+            <app-productor-grupal-form *ngIf="user.roles[0].name === 'Productor_Grupal'"
                                        [ParentForm]="editGroup" [user]="user"></app-productor-grupal-form>
 
-            <app-productor-representante-form *ngIf="userRol === 'Productor_Representante Grupo'"
+            <app-productor-representante-form *ngIf="user.roles[0].name === 'Productor_Representante Grupo'"
                                               [ParentForm]="editGroup" [user]="user"></app-productor-representante-form>
 
-            <app-transportista-form *ngIf="userRol === 'Transportista'"
+            <app-transportista-form *ngIf="user.roles[0].name === 'Transportista'"
                                     [ParentForm]="editGroup" [user]="user"></app-transportista-form>
 
-            <app-administrador-mantenimiento-form *ngIf="userRol === 'Administrador_Mantenimiento'"
+            <app-administrador-mantenimiento-form *ngIf="user.roles[0].name === 'Administrador_Mantenimiento'"
                                                   [ParentForm]="editGroup" [user]="user"></app-administrador-mantenimiento-form>
 
-            <app-verificador-form *ngIf="userRol === 'verificador'"
+            <app-verificador-form *ngIf="user.roles[0].name === 'verificador'"
                                   [ParentForm]="editGroup" [user]="user"></app-verificador-form>
 
-            <app-promotor-form *ngIf="userRol === 'Promotor'"
+            <app-promotor-form *ngIf="user.roles[0].name === 'Promotor'"
                                [ParentForm]="editGroup" [user]="user"></app-promotor-form>
 
-            <app-gerente-form *ngIf="userRol === 'Gerente_General'"
+            <app-gerente-form *ngIf="user.roles[0].name === 'Gerente_General'"
                               [ParentForm]="editGroup" [user]="user"></app-gerente-form>
 
             <div>
+
               <button mat-raised-button color="primary" [disabled]="!editGroup.valid">Actualizar</button>
             </div>
           </form>
