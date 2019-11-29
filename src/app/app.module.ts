@@ -68,6 +68,7 @@ import { AdministradorMantenimientoFormComponent } from './autenticacion/usuario
 import { PromotorFormComponent } from './autenticacion/usuarios/promotor-form/promotor-form.component';
 import { VerificadorFormComponent } from './autenticacion/usuarios/verificador-form/verificador-form.component';
 import { GerenteFormComponent } from './autenticacion/usuarios/gerente-form/gerente-form.component';
+import { PasswordRequireComponent } from './autenticacion/dashboard/password-require/password-require.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -133,6 +134,7 @@ const modulosMaterial = [
     PromotorFormComponent,
     VerificadorFormComponent,
     GerenteFormComponent,
+    PasswordRequireComponent,
 
   ],
   imports: [

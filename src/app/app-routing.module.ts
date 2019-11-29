@@ -11,12 +11,14 @@ import { RegisterComponent } from './autenticacion/register/register.component';
 import { ConfiguracionUsuarioComponent } from "./autenticacion/configuracion-usuario/configuracion-usuario.component";
 import {GuessGuard} from "./guards/guess.guard";
 import {UsuariosEditComponent} from "./autenticacion/usuarios/usuarios-edit/usuarios-edit.component";
+import {PasswordRequireComponent} from "./autenticacion/dashboard/password-require/password-require.component";
 
 const routes: Routes = [
   {path: '', component:HomeComponent, canActivate:[GuessGuard]},
   {path: 'login', component:LoginComponent, canActivate:[GuessGuard]},
   {path: 'register', component:RegisterComponent, canActivate:[GuessGuard]},
   {path: 'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'passport-require', component:PasswordRequireComponent, canActivate:[AuthGuard]},
   {path: 'listado-usuarios', component:UsuariosComponent, canActivate:[AuthGuard, UsersGuard]},
   {path: 'listado-usuarios/:id', component:UsuariosEditComponent, canActivate:[AuthGuard, UsersGuard]},
   {path: 'configuraciones-usuarios', component:ConfiguracionUsuarioComponent, canActivate:[AuthGuard]},

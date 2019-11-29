@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import {Observable, pipe} from 'rxjs';
 import { Usuarios } from '../models/ususarios.model';
 
 @Injectable({
@@ -74,6 +74,14 @@ export class UsuariosIndexService {
   attemptPassword(id){
     return this.http.get(environment.endpoint + "/configuraciones/attempt/" + id, {headers: this.headers})
       .pipe(map(datos => {return datos}));
+  }
+
+  /**
+   * Envio de passwords nuevos al ingresar por primera vez
+   */
+  sendPasswords(id, password){
+    return this.http.post(environment.endpoint + "/configuraciones/password-confirmation/" + id, {password}, {headers: this.headers})
+      .pipe(map(datos => {return datos}))
   }
 
 

@@ -3,16 +3,16 @@
     <mat-card-title>Dashboard de usuario {{ datos.name }}</mat-card-title>
     <mat-card-content>
       <hr />
-      <app-productor-individual-dash [user]="datos"  *ngIf="roles === 'Productor_Individual'"></app-productor-individual-dash>
-      <app-productor-grupal-dash [user]="datos" *ngIf="roles === 'Productor_Grupal'"></app-productor-grupal-dash>
-      <app-productor-repesentante-dash [user]="datos" *ngIf="roles === 'Productor_Representante Grupo'"></app-productor-repesentante-dash>
-      <app-comprador-dash [user]="datos" *ngIf="roles === 'Comprador'"></app-comprador-dash>
-      <app-transportista-dash [user]="datos" *ngIf="roles === 'Transportista'"></app-transportista-dash>
-      <app-promotor-dash [user]="datos" *ngIf="roles === 'Promotor'"></app-promotor-dash>
-      <app-admin-sistema-dash [user]="datos" *ngIf="roles === 'Administrador_Sistema'"></app-admin-sistema-dash>
-      <app-admin-mantenimiento-dash [user]="datos" *ngIf="roles === 'Administrador_Mantenimiento'"></app-admin-mantenimiento-dash>
-      <app-verificador-dash [user]="datos" *ngIf="roles === 'verificador'"></app-verificador-dash>
-      <app-gerente-dash [user]="datos" *ngIf="roles === 'Gerente_General'"></app-gerente-dash>
+      <app-productor-individual-dash [user]="datos"  *ngIf="datos.roles[0].name === 'Productor_Individual'"></app-productor-individual-dash>
+      <app-productor-grupal-dash [user]="datos" *ngIf="datos.roles[0].name === 'Productor_Grupal'"></app-productor-grupal-dash>
+      <app-productor-repesentante-dash [user]="datos" *ngIf="datos.roles[0].name === 'Productor_Representante Grupo'"></app-productor-repesentante-dash>
+      <app-comprador-dash [user]="datos" *ngIf="datos.roles[0].name === 'Comprador'"></app-comprador-dash>
+      <app-transportista-dash [user]="datos" *ngIf="datos.roles[0].name === 'Transportista'"></app-transportista-dash>
+      <app-promotor-dash [user]="datos" *ngIf="datos.roles[0].name === 'Promotor'"></app-promotor-dash>
+      <app-admin-sistema-dash [user]="datos" *ngIf="datos.roles[0].name === 'Administrador_Sistema'"></app-admin-sistema-dash>
+      <app-admin-mantenimiento-dash [user]="datos" *ngIf="datos.roles[0].name === 'Administrador_Mantenimiento'"></app-admin-mantenimiento-dash>
+      <app-verificador-dash [user]="datos" *ngIf="datos.roles[0].name === 'verificador'"></app-verificador-dash>
+      <app-gerente-dash [user]="datos" *ngIf="datos.roles[0].name === 'Gerente_General'"></app-gerente-dash>
     </mat-card-content>
   </mat-card>
 
