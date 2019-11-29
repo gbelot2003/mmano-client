@@ -21,9 +21,5 @@ export class ConfiguracionesService {
     }));
   }
 
-  changeStatus(id){
-    return this.http.get(environment.endpoint + "/configuraciones/changeStatus/" + id, {headers: this.headers}).pipe(map(data => {
-      return data;
-    }));
-  }
+
 }

@@ -1,13 +1,37 @@
 <mat-grid-list cols="4" rowHeight="100px">
   <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <mat-card *ngIf="configuraciones.length" class="example-card">
+    <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title>Nuevos Usuarios</mat-card-title>
-        <mat-card-subtitle>Hay <span style="color: red;">{{ configuraciones.length }}</span> usuarios pendientes de aprobación</mat-card-subtitle>
+        <mat-card-title>Nuevos</mat-card-title>
+        <mat-card-subtitle>Hay <span style="color: red;">{{ configuraciones.nuevos.length }}</span> pendientes de aprobación</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-actions>
-        <a [routerLink]="['/listado-usuarios']"  mat-button>Ir a consola de usuarios</a>
-      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Esperando</mat-card-title>
+        <mat-card-subtitle>Hay <span style="color: red;">{{ configuraciones.espera.length }}</span> pendientes primer login</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile  [colspan]="1">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Aprobados</mat-card-title>
+        <mat-card-subtitle>Hay <span style="color: red;">{{ configuraciones.activos.length }}</span> activos</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile  [colspan]="1">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Bloqueados</mat-card-title>
+        <mat-card-subtitle>Hay <span style="color: red;">{{ configuraciones.desactivos.length }}</span> Cancelados</mat-card-subtitle>
+      </mat-card-header>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
