@@ -13,6 +13,7 @@ import {GuessGuard} from "./guards/guess.guard";
 import {UsuariosEditComponent} from "./autenticacion/usuarios/usuarios-edit/usuarios-edit.component";
 import {PasswordRequireComponent} from "./autenticacion/dashboard/password-require/password-require.component";
 import {ConfiguracionesComponent} from "./autenticacion/configuraciones/configuraciones.component";
+import { AuditComponent } from './autenticacion/audit/audit.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent, canActivate:[GuessGuard]},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'listado-usuarios/:id', component:UsuariosEditComponent, canActivate:[AuthGuard, UsersGuard]},
   {path: 'configuraciones-usuarios', component:ConfiguracionUsuarioComponent, canActivate:[AuthGuard]},
   {path: 'configuraciones', component:ConfiguracionesComponent, canActivate:[AuthGuard, UsersGuard]},
+  {path: 'auditoria', component:AuditComponent, canActivate:[AuthGuard, UsersGuard]},
   {path: 'logout', component:LogoutComponent, canActivate:[AuthGuard]},
 ];
 

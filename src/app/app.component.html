@@ -52,6 +52,12 @@
             <mat-icon>account_circle</mat-icon> <span class="nav-caption">Config. Usuario</span>
           </a>
 
+          <a mat-list-item routerLink="/auditoria"
+          *ngIf="user"
+          (click)="onSidenavClose()">
+         <mat-icon>assignment</mat-icon> <span class="nav-caption">Auditoria</span>
+       </a>
+
           <a mat-list-item routerLink="/register"
              *ngIf="!user"
              (click)="onSidenavClose()">

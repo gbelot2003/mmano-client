@@ -70,6 +70,7 @@ import { VerificadorFormComponent } from './autenticacion/usuarios/verificador-f
 import { GerenteFormComponent } from './autenticacion/usuarios/gerente-form/gerente-form.component';
 import { PasswordRequireComponent } from './autenticacion/dashboard/password-require/password-require.component';
 import { ConfiguracionesComponent } from './autenticacion/configuraciones/configuraciones.component';
+import { AuditComponent } from './autenticacion/audit/audit.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -137,7 +138,7 @@ const modulosMaterial = [
     GerenteFormComponent,
     PasswordRequireComponent,
     ConfiguracionesComponent,
-
+    AuditComponent,
   ],
   imports: [
     BrowserModule,
