@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuditService } from 'src/app/_servicios/audit.service';
 
 @Component({
   selector: 'app-audit',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audit.component.sass']
 })
 export class AuditComponent implements OnInit {
-
-  constructor() { }
+  rows:any;
+  private JSON:any;
+  constructor(
+    private AuditService: AuditService,
+    ) {
+      this.JSON = JSON;
+    }
 
   ngOnInit() {
+    this.AuditService.handle().subscribe((datos: any) => {
+      return this.rows = datos;});
   }
+
 
 }
