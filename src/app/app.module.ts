@@ -19,7 +19,7 @@ import {
   MatDividerModule,
   MatGridListModule,
   MatSnackBarModule,
-  MatListModule, MatDialogModule,
+  MatListModule, MatDialogModule, MatTab, MatTabsModule,
 } from '@angular/material';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -71,6 +71,7 @@ import { GerenteFormComponent } from './autenticacion/usuarios/gerente-form/gere
 import { PasswordRequireComponent } from './autenticacion/dashboard/password-require/password-require.component';
 import { ConfiguracionesComponent } from './autenticacion/configuraciones/configuraciones.component';
 import { AuditComponent } from './autenticacion/audit/audit.component';
+import { GruposComponent } from './autenticacion/grupos/grupos.component';
 
 const modulosMaterial = [
   ReactiveFormsModule,
@@ -92,6 +93,7 @@ const modulosMaterial = [
   MatSnackBarModule,
   MatListModule,
   MatDialogModule,
+  MatTabsModule,
 ];
 
 @NgModule({
@@ -139,6 +141,7 @@ const modulosMaterial = [
     PasswordRequireComponent,
     ConfiguracionesComponent,
     AuditComponent,
+    GruposComponent,
   ],
   imports: [
     BrowserModule,

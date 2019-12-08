@@ -1,3 +1,4 @@
+import { GruposComponent } from './autenticacion/grupos/grupos.component';
 import { UsersGuard } from './guards/users.guard';
 import { UsuariosComponent } from './autenticacion/usuarios/usuarios.component';
 import { LogoutComponent } from './autenticacion/logout/logout.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
   {path: 'passport-require', component:PasswordRequireComponent, canActivate:[AuthGuard]},
   {path: 'listado-usuarios', component:UsuariosComponent, canActivate:[AuthGuard, UsersGuard]},
+  {path: 'configuraciones-grupos', component:GruposComponent, canActivate:[AuthGuard, UsersGuard]},
   {path: 'listado-usuarios/:id', component:UsuariosEditComponent, canActivate:[AuthGuard, UsersGuard]},
   {path: 'configuraciones-usuarios', component:ConfiguracionUsuarioComponent, canActivate:[AuthGuard]},
   {path: 'configuraciones', component:ConfiguracionesComponent, canActivate:[AuthGuard, UsersGuard]},
