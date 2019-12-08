@@ -2,27 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormGroup, FormBuilder, Validator, Validators} from '@angular/forms';
 import { RegisterServiceService } from '../../_servicios/register-service.service';
-import {RolesService} from "../../_servicios/roles.service";
-import {DepartamentosService} from "../../_servicios/departamentos.service";
-import {MunicipioServiceService} from "../../_servicios/municipio-service.service";
-import { CompradoresComponent } from "./compradores/compradores.component";
-import { TransportistaComponent } from "./transportista/transportista.component";
-import { ProductorIndividualComponent } from "./productor-individual/productor-individual.component";
-import { ProductorGrupalComponent } from "./productor-grupal/productor-grupal.component";
-import { ProductorRepresentanteComponent } from "./productor-representante/productor-representante.component";
-import { PromotorComponent } from "./promotor/promotor.component";
-import { AdministradorSistemaComponent } from "./administrador-sistema/administrador-sistema.component";
-import { AdministradorMantenimientoComponent } from "./administrador-mantenimiento/administrador-mantenimiento.component";
-import { VerificadorComponent } from "./verificador/verificador.component";
-import { GerenteComponent } from "./gerente/gerente.component";
-import {MessageServiceService} from "../../_servicios/message-service.service";
-import {MatSnackBar} from "@angular/material";
-import {SnackBarComponentComponent} from "../../misc/snack-bar-component/snack-bar-component.component";
+import {RolesService} from '../../_servicios/roles.service';
+import {DepartamentosService} from '../../_servicios/departamentos.service';
+import {MunicipioServiceService} from '../../_servicios/municipio-service.service';
+import {MessageServiceService} from '../../_servicios/message-service.service';
+import {MatSnackBar} from '@angular/material';
+import {SnackBarComponentComponent} from '../../misc/snack-bar-component/snack-bar-component.component';
 
 
 export interface Roles {
-  value: string,
-  viewValue: string
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -33,7 +23,7 @@ export interface Roles {
 
 export class RegisterComponent implements OnInit {
   registerGroup: FormGroup;
-  private mensaje:any;
+  private mensaje: any;
   private errores: any;
   private roles: any;
   private departamentos: any;
@@ -41,12 +31,12 @@ export class RegisterComponent implements OnInit {
   private selectedRole: string;
   private selectedDepartamento: number;
   private selectedMunicipio: number;
-  private registrado:boolean;
+  private registrado: boolean;
 
   constructor(
     private formbuilder: FormBuilder,
-    private register:RegisterServiceService,
-    private router:Router,
+    private register: RegisterServiceService,
+    private router: Router,
     private rolesService: RolesService,
     private departamentoService: DepartamentosService,
     private municipiosService: MunicipioServiceService,
@@ -55,24 +45,24 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerGroup = this.formbuilder.group({
-      name:['', [Validators.required]],
-      email:['', [Validators.required, Validators.email]],
-      telefono:['', [Validators.required]],
-      departamento_id:['', [Validators.required]],
-      municipio_id:['', [Validators.required]],
-      calle:['', [Validators.required]],
-      casa:['', [Validators.required]],
-      role:['', [Validators.required]],
-      identidad:[''],
-      rtn:[''],
-      rtn_image:[''],
-      grupo_id:[''],
-      cuenta_image:[''],
-      descripcion_vehiculos:[''],
-      contrato:[''],
-      fvencimiento:[''],
-      fautorizacion:[''],
-      acuerdo:[''],
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      telefono: ['', [Validators.required]],
+      departamento_id: ['', [Validators.required]],
+      municipio_id: ['', [Validators.required]],
+      calle: ['', [Validators.required]],
+      casa: ['', [Validators.required]],
+      role: ['', [Validators.required]],
+      identidad: [''],
+      rtn: [''],
+      rtn_image: [''],
+      grupo_id: [''],
+      cuenta_image: [''],
+      descripcion_vehiculos: [''],
+      contrato: [''],
+      fvencimiento: [''],
+      fautorizacion: [''],
+      acuerdo: [''],
     });
 
     // suscribimos los cambios del formulario a rxjs
@@ -89,9 +79,9 @@ export class RegisterComponent implements OnInit {
     this.registrado = false;
   }
 
-  validar(){
-    if(!this.registerGroup.invalid){
-      this.register.handler(
+  validar() {
+    if ( !this.registerGroup.invalid ) {
+        this.register.handler(
         this.registerGroup.controls.name.value,
         this.registerGroup.controls.email.value,
         this.registerGroup.controls.role.value,
@@ -119,19 +109,19 @@ export class RegisterComponent implements OnInit {
           this.mensaje = error.error.message;
           this.errores = error.error.errors;
         });
-      return;
+        return;
     }
   }
 
-  onDepartamentosChange(){
+  onDepartamentosChange() {
     this.municipiosService.handler(this.selectedDepartamento).subscribe(datos => {
       this.municipios = datos;
-    })
+    });
   }
 
-  openSnackBar(){
+  openSnackBar() {
     this._snackbar.openFromComponent(SnackBarComponentComponent, {
       duration: 5000
-    })
+    });
   }
 }

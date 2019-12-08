@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, OnDestroy} from '@angular/core';
-import {FormGroup, Validators} from "@angular/forms";
-import {GruposServiceService} from "../../../_servicios/grupos-service.service";
+import {FormGroup, Validators} from '@angular/forms';
+import {GruposServiceService} from '../../../_servicios/grupos-service.service';
 
 @Component({
   selector: 'app-productor-representante',
@@ -11,10 +11,10 @@ export class ProductorRepresentanteComponent implements OnInit, OnDestroy{
   @Input() ParentForm: FormGroup;
   grupos: any;
 
-  constructor(private grupoService:GruposServiceService) { }
+  constructor(private grupoService: GruposServiceService) { }
 
   ngOnInit() {
-    this.grupoService.handler().subscribe(data => {
+    this.grupoService.index().subscribe(data => {
       this.grupos = data;
     });
     this.ParentForm.controls.identidad.validator = Validators.required;

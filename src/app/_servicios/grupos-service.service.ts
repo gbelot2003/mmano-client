@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {map} from "rxjs/operators";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GruposServiceService {
-  headers:HttpHeaders;
-  constructor(private http:HttpClient) { }
+  private headers: HttpHeaders;
 
-  handler(){
-    return this.http.get(environment.endpoint + "/grupos")
-      .pipe(map(data => {return data}))
+  constructor(private http: HttpClient) { }
+
+  index() {
+    return this.http.get(environment.endpoint + '/grupos')
+      .pipe(map(data => data));
   }
+
+
+
 }
