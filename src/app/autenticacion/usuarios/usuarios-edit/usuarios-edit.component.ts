@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {UsuariosIndexService} from "../../../_servicios/usuarios-index.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {RolesService} from "../../../_servicios/roles.service";
-import {DepartamentosService} from "../../../_servicios/departamentos.service";
-import {MunicipioServiceService} from "../../../_servicios/municipio-service.service";
-import {ConfiguracionesService} from "../../../_servicios/configuraciones.service";
+import {ActivatedRoute, Router} from '@angular/router';
+import {UsuariosIndexService} from '../../../_servicios/usuarios-index.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RolesService} from '../../../_servicios/roles.service';
+import {DepartamentosService} from '../../../_servicios/departamentos.service';
+import {MunicipioServiceService} from '../../../_servicios/municipio-service.service';
+import {ConfiguracionesService} from '../../../_servicios/configuraciones.service';
 
 @Component({
   selector: 'app-usuarios-edit',
@@ -14,8 +14,8 @@ import {ConfiguracionesService} from "../../../_servicios/configuraciones.servic
 })
 
 export class UsuariosEditComponent implements OnInit{
-  id:string;
-  user:any;
+  id: string;
+  user: any;
   editGroup: FormGroup;
   private roles: any;
   private departamentos: any;
@@ -23,27 +23,27 @@ export class UsuariosEditComponent implements OnInit{
   private selectedRole: string;
   private selectedDepartamento: number;
   private selectedMunicipio: number;
-  private registrado:boolean;
+  private registrado: boolean;
   ename: string;
   private userRol: any;
   private passportAttempt: boolean;
 
   constructor(
     private route: ActivatedRoute,
-    private usuariosIndexService:UsuariosIndexService,
+    private usuariosIndexService: UsuariosIndexService,
     private formbuilder: FormBuilder,
     private rolesService: RolesService,
     private departamentoService: DepartamentosService,
     private municipiosService: MunicipioServiceService,
-    private router:Router,
-    private configurations:ConfiguracionesService,
+    private router: Router,
+    private configurations: ConfiguracionesService,
   ) { }
 
   ngOnInit() {
     // solicitamos id del router
     this.id = this.route.snapshot.paramMap.get('id');
 
-    //solicitamos info del usuario del API
+    // solicitamos info del usuario del API
     this.usuariosIndexService.getUsuario(this.id).subscribe(data => {
 
       // guardamos objeto con info del usuario
@@ -77,24 +77,24 @@ export class UsuariosEditComponent implements OnInit{
 
     // Instanciamos el fomulario y relgas locales
     this.editGroup = this.formbuilder.group({
-      name:['', [Validators.required]],
-      email:['', [Validators.required, Validators.email]],
-      telefono:['', [Validators.required]],
-      departamento_id:['', [Validators.required]],
-      municipio_id:['', [Validators.required]],
-      calle:['', [Validators.required]],
-      casa:['', [Validators.required]],
-      role:[{value: '', disabled: true}, [Validators.required]],
-      identidad:[''],
-      rtn:[''],
-      rtn_image:[''],
-      grupo_id:[''],
-      cuenta_image:[''],
-      descripcion_vehiculos:[''],
-      contrato:[''],
-      fvencimiento:[''],
-      fautorizacion:[''],
-      acuerdo:[''],
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      telefono: ['', [Validators.required]],
+      departamento_id: ['', [Validators.required]],
+      municipio_id: ['', [Validators.required]],
+      calle: ['', [Validators.required]],
+      casa: ['', [Validators.required]],
+      role: [{value: '', disabled: true}, [Validators.required]],
+      identidad: [''],
+      rtn: [''],
+      rtn_image: [''],
+      grupo_id: [''],
+      cuenta_image: [''],
+      descripcion_vehiculos: [''],
+      contrato: [''],
+      fvencimiento: [''],
+      fautorizacion: [''],
+      acuerdo: [''],
     });
 
     // Llenamos las opciones de role?
@@ -150,34 +150,34 @@ export class UsuariosEditComponent implements OnInit{
   }
 
   cancelarAcceso($event){
-    if (confirm("¿Esta seguro que desea cancelar accesos a usuario?")){
+    if (confirm('¿Esta seguro que desea cancelar accesos a usuario?')){
       this.usuariosIndexService.cancelAccess(this.id).subscribe( data => {
         this.user = data;
-      })
+      });
     } else {
-      return
+      return;
     }
 
 
   }
 
   reenviarEmail(){
-    if (confirm("¿Esta seguro que desea reenviar accesos a usuario?")){
+    if (confirm('¿Esta seguro que desea reenviar accesos a usuario?')){
       this.usuariosIndexService.attemptPassword(this.id).subscribe( data => {
         this.user = data;
       })
     } else {
-      return
+      return;
     }
   }
 
   resetPassword(){
-    if (confirm("¿Esta seguro que desea resetear el password del usuario?")){
+    if (confirm('¿Esta seguro que desea resetear el password del usuario?')){
       this.usuariosIndexService.resetPassword(this.id).subscribe( data => {
         this.user = data;
       })
     } else {
-      return
+      return;
     }
   }
 }

@@ -30,11 +30,14 @@ export class GruposComponent implements OnInit {
   }
 
   getItem(item) {
-
-    this.groupForm.get('viewValue').setValue(item.viewValue);
-    this.groupForm.get('value').setValue(item.value);
-    this.state = true;
-    console.log(this.groupForm.controls.viewValue.value);
+    if (confirm('¿Esta seguro que desea seleccionar a este grupo?')) {
+      this.groupForm.get('viewValue').setValue(item.viewValue);
+      this.groupForm.get('value').setValue(item.value);
+      this.state = true;
+      console.log(this.groupForm.controls.viewValue.value);
+    } else {
+      return;
+    }
   }
 
   limpiar() {
@@ -44,19 +47,20 @@ export class GruposComponent implements OnInit {
   }
 
   validar() {
-    if (this.state) {
-      this.grupos.edit(this.groupForm.controls.value.value, this.groupForm.controls.viewValue.value)
-        .subscribe(datos => {
-        this.grupos.index().subscribe(data => { this.data = data; });
-        console.log(datos);
-      });
-    } else {
-      this.grupos.create(this.groupForm.controls.viewValue.value)
-        .subscribe(datos => {
-        this.limpiar();
-        this.grupos.index().subscribe(data => { this.data = data; });
-      });
+    if (confirm('¿Esta seguro que desea actualizar la información?')) {
+      if (this.state) {
+        this.grupos.edit(this.groupForm.controls.value.value, this.groupForm.controls.viewValue.value)
+          .subscribe(datos => {
+          this.grupos.index().subscribe(data => { this.data = data; });
+          console.log(datos);
+        });
+      } else {
+        this.grupos.create(this.groupForm.controls.viewValue.value)
+          .subscribe(datos => {
+          this.limpiar();
+          this.grupos.index().subscribe(data => { this.data = data; });
+        });
+      }
     }
   }
-
 }
