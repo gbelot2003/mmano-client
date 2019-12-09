@@ -10,37 +10,37 @@ import { Router, Route, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
   urlRetorno: string;
-  private mensaje:string;
+  private mensaje: string;
   constructor(
     private formbuilder: FormBuilder,
-    private AutenticacionService:AutenticacionService,
-    private router:Router,
-    private route:ActivatedRoute
+    private AutenticacionService: AutenticacionService,
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
     this.loginGroup = this.formbuilder.group({
-      email:['gerardobelot@outlook.com', [Validators.required, Validators.email]],
-      password:['Luna010203', [Validators.required]],
-      remember_me:[''],
+      email: ['gerardobelot@outlook.com', [Validators.required, Validators.email]],
+      password: ['Luna010203', [Validators.required]],
+      remember_me: [''],
     });
-    this.urlRetorno = this.route.snapshot.queryParams["urlRespuesta"];
+    this.urlRetorno = this.route.snapshot.queryParams.urlRespuesta;
   }
 
-  validar(){
-    if(this.loginGroup.invalid){
+  validar() {
+    if (this.loginGroup.invalid) {
       return;
     }
 
     this.AutenticacionService.login(this.loginGroup.controls.email.value, this.loginGroup.controls.password.value)
     .subscribe(datos => {
-      localStorage.setItem("token", JSON.stringify(datos));
+      localStorage.setItem('token', JSON.stringify(datos));
       this.router.navigate(['dashboard']);
       return;
     }, error1 => {
-      this.mensaje = "Datos Incorrectos";
-      localStorage.removeItem("token")
-      localStorage.removeItem("user")
+      this.mensaje = 'Datos Incorrectos';
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
     });
   }
 

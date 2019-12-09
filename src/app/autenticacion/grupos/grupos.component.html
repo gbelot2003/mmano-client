@@ -2,10 +2,29 @@
   <mat-card>
     <mat-card-title>Configuración de Grupos</mat-card-title>
     <mat-card-content>
+      <div style="margin-bottom: 2rem;">
+          <form [formGroup]="groupForm" (ngSubmit)="validar()">
+              <mat-form-field class="example-full-width" >
+                  <input matInput placeholder="Grupo" #viewValue formControlName="viewValue" required>
+              </mat-form-field>
+
+              <button  mat-raised-button color="primary" style="margin-right: 5px;">
+                  <mat-icon aria-hidden="false">add</mat-icon> Agregar
+              </button>
+
+              <button *ngIf="state"  mat-raised-button color="warn" (click)="limpiar()" >
+                  <mat-icon aria-hidden="false">edit</mat-icon> Limpiar</button>
+          </form>
+
+      </div>
+
+      <mat-divider></mat-divider>
+
       <div>
-          <mat-form-field class="example-full-width">
-              <input matInput placeholder="Grupo" value="">
-          </mat-form-field>
+          <mat-nav-list>
+              <mat-list-item *ngFor="let item of data" (click)="getItem(item)" >
+                  <mat-icon aria-hidden="false">list</mat-icon> | {{ item.viewValue }}</mat-list-item>
+          </mat-nav-list>
       </div>
     </mat-card-content>
   </mat-card>
