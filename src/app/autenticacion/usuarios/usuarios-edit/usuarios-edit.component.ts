@@ -157,8 +157,17 @@ export class UsuariosEditComponent implements OnInit{
     } else {
       return;
     }
+  }
 
 
+  eliminarUsuario($event) {
+    if (confirm('¿Esta seguro que desea eliminar al usuario? esta acción no puede ser revertida!!!')){
+      this.usuariosIndexService.deleteUsuario(this.id).subscribe( data => {
+        this.router.navigate(['listado-usuarios']);
+      });
+    } else {
+      return;
+    }
   }
 
   reenviarEmail(){

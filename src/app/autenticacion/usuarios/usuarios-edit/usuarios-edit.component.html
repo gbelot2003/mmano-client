@@ -9,6 +9,9 @@
           <button mat-raised-button color="primary" *ngIf="user.status === false && user.passwordAttempt === false"
                   class="example-button-row" (click)="enviarAccesos()">Dar acceso</button>
 
+          <button mat-raised-button color="warn" *ngIf="user.status === false && user.passwordAttempt === false"
+                  class="example-button-row" (click)="eliminarUsuario()">Eliminar Usuario</button>
+
           <span *ngIf="user.passwordAttempt === true">
             <p>Se envío correo de acceso, en espera de las acciones del usuario.</p>
             <p>Estamos esperando las acciones del usuario</p>

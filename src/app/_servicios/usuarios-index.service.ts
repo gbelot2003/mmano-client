@@ -31,8 +31,18 @@ export class UsuariosIndexService {
    * Obtener detalles de usuario
    * @param id
    */
-  getUsuario(id) {
+  getUsuario( id ) {
     return  this.http.get(environment.endpoint + '/users/' + id, {headers: this.headers}).pipe(map(data => {
+      return data;
+    }));
+  }
+
+  /**
+   * Eliminar el usuario
+   * @param id
+   */
+  deleteUsuario( id ) {
+    return this.http.delete(environment.endpoint + '/users/' + id, {headers: this.headers}).pipe(map(data => {
       return data;
     }));
   }
