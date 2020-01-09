@@ -27,7 +27,7 @@
 
         <div>
           <mat-form-field>
-            <input matInput formControlName="telefono" placeholder="Teféfono de Contacto*" class="example-full-width">
+            <input matInput formControlName="phone" placeholder="Teféfono de Contacto*" class="example-full-width">
           </mat-form-field>
         </div>
 
@@ -38,7 +38,7 @@
               <mat-label>Departamento*</mat-label>
               <mat-select [(ngModel)]="selectedDepartamento"
                           (selectionChange)="onDepartamentosChange()"
-                          formControlName="departamento_id">
+                          formControlName="departmentId">
                 <mat-option *ngFor="let depart of departamentos" [value]="depart.value">
                   {{depart.viewValue}}
                 </mat-option>
@@ -50,7 +50,7 @@
             <mat-form-field>
               <mat-label>Municipios*</mat-label>
               <mat-select [(ngModel)]="selectedMunicipio"
-                          formControlName="municipio_id">
+                          formControlName="municipalityId">
                 <mat-option *ngFor="let munic of municipios" [value]="munic.value">
                   {{munic.viewValue}}
                 </mat-option>
@@ -62,15 +62,21 @@
 
         <div>
           <mat-form-field>
-            <input matInput formControlName="calle" placeholder="Detalle Dirección*" class="example-full-width">
-            <mat-hint>Numero de calle y referencias</mat-hint>
+            <input matInput formControlName="identity" placeholder="Identidad*" type="number" class="example-full-width">
+            <mat-hint>Identidad</mat-hint>
           </mat-form-field>
-
         </div>
 
         <div>
           <mat-form-field>
-            <input matInput formControlName="casa" placeholder="No. de Casa*" class="example-full-width">
+            <input matInput formControlName="street" placeholder="Detalle Dirección*" class="example-full-width">
+            <mat-hint>Numero de calle y referencias</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <input matInput formControlName="house" placeholder="No. de Casa*" class="example-full-width">
           </mat-form-field>
         </div>
 

@@ -12,12 +12,12 @@ export class AdministradorSistemaComponent implements OnInit, OnDestroy{
   constructor() { }
 
   ngOnInit() {
-    this.ParentForm.controls.contrato.validator = Validators.required;
-    this.ParentForm.controls.fvencimiento.validator = Validators.required;
+    this.ParentForm.controls.contract.validator = Validators.required;
+    this.ParentForm.controls.endsDate.validator = Validators.required;
   }
 
   ngOnDestroy(){
-    this.ParentForm.controls.contrato.validator = null;
-    this.ParentForm.controls.fvencimiento.validator = null;
+    this.ParentForm.controls.contract.validator = null;
+    this.ParentForm.controls.endsDate.validator = null;
   }
 }
